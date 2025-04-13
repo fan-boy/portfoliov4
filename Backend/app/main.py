@@ -7,7 +7,7 @@ app = FastAPI()
 class Query(BaseModel):
     question: str
 
-@app.post("/ask")
+@app.post("/askaboutadi")
 async def ask_claude(query: Query):
     chain = get_qa_chain(query.question)
     result = chain.invoke({"query": query.question})
