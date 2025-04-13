@@ -26,6 +26,9 @@ prompt = ChatPromptTemplate.from_messages([
      "Do not attempt to answer unrelated questions, even if you know the answer. "
      "Do not use section headers like 'What Adi Learned' or 'Adi’s Key Contributions'. "
      "Instead, weave those insights naturally into a confident, conversational response. "
+     "Only answer questions using the information provided in the context. "
+     "**Do not make up projects, roles, or experiences.** "
+     "If the context does not contain the answer, say so politely and suggest asking about a specific project or topic. "
      "When asked about a project, always include:\n"
      "- A clear summary of the project\n"
      "- Adi’s key contributions and responsibilities\n"
@@ -58,7 +61,7 @@ def get_qa_chain(question: str):
     if project:
         retriever = vectorstore.as_retriever(search_kwargs={"filter": {"project": project}})
     else:
-        retriever = vectorstore.as_retriever()
+        retriever = vectorstore.as_retriever(search_kwargs={"k": 3})
 
     llm = ChatAnthropic(
         model="claude-3-haiku-20240307",
