@@ -1,0 +1,38 @@
+# === Python (Backend) ===
+**/venv/
+**/__pycache__/
+**/*.py[cod]
+**/*.pyo
+**/*.egg-info/
+
+# === Node.js (Frontend) ===
+**/node_modules/
+**/.next/
+**/.turbo/
+**/dist/
+**/out/
+
+# === Environment Variables ===
+**/.env
+**/.env.local
+**/.env.*.local
+
+# === Logs ===
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# === OS-specific ===
+.DS_Store
+Thumbs.db
+
+# === IDEs and Editors ===
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# === Misc ===
+*.bak
+*.tmp
