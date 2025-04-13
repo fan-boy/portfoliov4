@@ -1,0 +1,58 @@
+{"project": "Dune Security"}
+Project Name: Dune Security
+Project Title: Adaptive Cyber Risk Management Platform
+
+Overview:Recognizing that 90% of cybersecurity breaches stem from human error, Dune Security set out to build a user-adaptive risk management platform. The platform uses AI to dynamically assign training to employees, helping them identify spoofing and phishing threats and reduce organizational risk.
+
+As Head of Product Design, I was responsible for maturing the platform’s visual identity and establishing a scalable design system to support future data visualizations and feature growth.
+
+Problem Statement:How might we design a cybersecurity platform that adapts to user behavior, delivers personalized training, and provides clear, actionable insights to reduce human-driven risk?
+
+Outcome:We delivered a robust, modern platform that:
+	•	Visualizes organizational risk at every level
+	•	Assigns dynamic, contextual training
+	•	Supports role-based access and control
+	•	Integrates with enterprise tools and APIs
+	•	Scales with growing data and user needs
+
+Role: Head of Product DesignTimeline: OngoingFocus Areas: Design system, data visualization, user experience, role-based access
+
+Design System & Visualization Foundation
+
+We built the Dune Security component system from the ground up to support:
+	•	Data clarity: Emphasis on legibility and visual hierarchy
+	•	Modern aesthetics: Clean, intuitive UI for security professionals
+	•	Scalability: Designed to accommodate new data types and visualizations
+
+Key Features
+
+1. Organization-Wide Risk Visibility
+	•	Dashboards show cumulative risk scores, individual risk factors, and actions that impact risk.
+	•	Data is pulled from integrations like Okta, Microsoft Entra ID, Google Workspace, Abnormal, Proofpoint, and Mindcast.
+
+2. Role-Based Access & Custom Views
+	•	From CEOs to contract workers, users see only the data relevant to their role.
+	•	CISOs have full access to configure, monitor, and manage the platform.
+
+3. Dynamic, Contextual Training
+	•	AI-driven training is assigned based on user behavior and risk level.
+	•	Employees can view their personal risk score, past phishing simulations, and training history.
+
+4. CISO Control Panel
+	•	CISOs can:
+	▫	Assign training by risk level
+	▫	Access a library of cybersecurity and compliance topics
+	▫	Monitor training sessions with video playback and knowledge checks
+
+5. Admin Configuration Tools
+	•	Intuitive interface for managing:
+	▫	Permissions
+	▫	Notification preferences
+	▫	System configurations
+
+Impact & Recognition
+	•	Trusted by CISOs at Warner Music Group, Hugo Boss, and Netlify
+	•	Secured $2 million in funding
+	•	Positioned to transform how organizations manage human-driven cybersecurity risk
+
+Summary:At Dune Security, I led the design of a platform that empowers organizations to proactively manage cyber risk through adaptive training, clear data visualization, and scalable design. The result is a tool trusted by top security leaders and built to evolve with the needs of modern enterprises.

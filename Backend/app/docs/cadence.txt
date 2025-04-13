@@ -1,0 +1,43 @@
+{"project": "cadence"}
+Project Name: Cadence
+Project Title: Interactive Art Installation – Audio-Visual Experience
+
+Overview:An interactive art installation that reacts to users’ movement and creates an immersive audio-visual experience. Built during the IMD Incubator at UMD and showcased at NextNow Fest 2024.
+
+Problem Statement:How might we create a seamless and harmonious experience where users could influence music and visuals through their movements?
+
+Outcome:We used body movements captured by a motion detector sensor to modify and enhance existing music, creating a dynamic and immersive experience.
+
+Role: Lead Designer and DeveloperTimeline: June 2024 – August 2024Tools Used: Figma, Procreate, Blender, Unity, TouchDesignerTeam: Arjav Jain
+
+Inspiration
+
+The idea was sparked while watching the movie Whiplash. I thought: “Wouldn’t it be cool if body movement could create music?” This led to the concept of using motion as a conductor-like input for audio-visual generation.
+
+Research & Discovery
+
+I sketched storyboards and user flows to define how the experience should feel. The goal was to make the interaction intuitive and magical.
+
+Building the Proof of Concept
+	•	Used TouchDesigner with Kinect Azure for motion detection
+	•	Used Max MSP for music generation
+	•	Built a basic theremin-like prototype
+
+Prototyping the Experience
+	•	Added audio-reactive particle cloud visualizations
+	•	Built projection surfaces using cardboard and white paper
+	•	Used Kantan Mapper to map visuals to each surface
+
+User Testing & Iteration
+
+Tested with 10 users. Key feedback:
+	1.	Positive Emotional Response – Users described the experience as “magical” and felt like they were “part of the art.”
+	2.	Unclear Gestures – Some gestures weren’t intuitive, so we refined them to improve immersion.
+
+Key Learnings
+
+1. Designing New Interaction PatternsCombining familiar gestures with novel interactions led to more intuitive and enjoyable experiences. Iteration was key.
+
+2. Balancing Technical and Creative GoalsWe pivoted from generating music from scratch to modifying existing tracks based on motion. This allowed us to stay within technical limits while delivering a rich experience.
+
+Summary:This project taught me how to innovate within constraints, design intuitive interactions, and create emotionally resonant experiences using immersive technology.

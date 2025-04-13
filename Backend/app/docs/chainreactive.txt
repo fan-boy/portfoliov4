@@ -1,0 +1,59 @@
+{"project": "chain reactive"}
+Project Name: Chain Reactive 
+Project Title: Dynamic Website Builder for Small Business Online Ordering
+
+Overview:A dynamic website builder designed to empower small businesses—especially local restaurants in rural areas—to seamlessly add personalized online ordering to their offerings. The project focused on enhancing an existing POS system and supporting community-driven business growth.
+
+Case Study Focus:This case study highlights the order scheduling feature of the platform.
+
+Problem Statement:How might we empower customers to conveniently select a pickup or delivery time before browsing the menu, ensuring that their choice influences menu items and prices?
+
+Outcome:We designed and implemented a highly dynamic scheduling component that met the needs of both customers and business owners. The feature is live at siamlewisburg.com ↗ (Lewisburg, PA).
+
+Role: Lead Designer and DeveloperTimeline: July 2021 – August 2022Tools Used: Adobe XD, Figma, React.js, Node.jsTeam: Adrian Pinter (CEO)
+
+Understanding the Users
+
+1. Restaurant CustomersPrimarily college students, families, and empty nesters who wanted a fast, convenient way to order food—often in advance for events or meal planning.
+
+2. Business OwnersAged 30–50, focused on operational efficiency and increasing revenue. They needed customers to schedule orders so they could plan staffing and inventory, and adjust pricing based on delivery time.
+
+User Research
+	•	Conducted semi-structured interviews with 3 business owners and 8 customers.
+	•	Key insights:
+	▫	100% of business owners wanted scheduled orders to better manage resources.
+	▫	72% of customers wanted to pre-order for special occasions or meal prep.
+
+Competitor Analysis
+	•	Doordash, Postmates, etc. were reviewed.
+	•	Findings:
+	▫	All offered grouped time options.
+	▫	Most had optional scheduling, often on the first screen.
+	▫	Time pickers were often cluttered and confusing.
+
+Design Process
+
+Participatory Design Sessions
+	•	Collaborated with stakeholders to ideate and sketch early concepts.
+	•	Conducted paper prototype testing to validate flows and UI.
+
+Key Design Features:
+	•	A 3-step time picker that was simple and intuitive.
+	•	A single-screen dropdown for time selection to reduce clutter.
+	•	Default time selection logic handled in code to meet business needs.
+
+Final Solution
+	•	A clean, user-friendly scheduling interface that:
+	▫	Met business owners’ need for predictable order timing.
+	▫	Gave customers a frictionless way to plan ahead.
+	•	Successfully balanced technical feasibility with user experience.
+
+Key Learnings
+
+1. Designing for Multiple StakeholdersUnderstanding the distinct needs of business owners and customers was critical. We avoided assumptions and validated ideas early.
+
+2. Simplicity WinsA minimal, dropdown-based UI proved more effective than complex time pickers.
+
+3. Structured Process = Better OutcomesFollowing a structured design process helped us deliver a solution that satisfied all parties.
+
+Summary:This project taught me how to design for diverse user groups, balance business and user needs, and create scalable, intuitive features that drive real-world impact.

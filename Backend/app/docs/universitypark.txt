@@ -1,0 +1,94 @@
+{"project": "University Park"}
+Project Name: University Park
+Project Title: University Park Sustainability Platform
+
+Overview:A digital platform designed to educate residents of University Park on sustainable practices and foster a community around sustainability. Built in collaboration with the University Park Sustainability Committee, the platform promotes engagement, education, and action through gamification and community features.
+
+Problem Statement:How might we effectively encourage University Park residents to adopt and maintain sustainable living practices in their homes and daily lives, while fostering community engagement and collaboration?
+
+Outcome:We designed a multifaceted platform that includes:
+	•	Educational resources
+	•	A list of actionable sustainability practices
+	•	Gamification elements (badges, points, challenges)
+	•	Administrative tools for the Sustainability Committee
+
+Role: Product DesignerTimeline: October 2023 – May 2024Tools Used: FigmaTeam: Fatema Motiwala, Meghana Alla, Pooja Gajera, Rushenka Christopher
+
+Research & Discovery
+
+1. Market ResearchWe began with a top-down approach, exploring global sustainability initiatives and narrowing our focus to the needs of University Park residents.
+
+2. Expert InterviewsWe spoke with subject matter experts and members of the neighboring Tacoma Park sustainability committee to gather insights and inspiration.
+
+Understanding the Users
+
+Residents of University Park
+	•	Use the platform to assess sustainability practices
+	•	Learn about environmental impact and conservation
+	•	Engage with the community and track progress
+
+Green Team (Sustainability Committee)
+	•	Use the platform to collect data and analyze metrics
+	•	Update content and manage resident engagement
+	•	Make informed decisions based on platform usage
+
+Information Architecture
+
+We conducted card sorting exercises (online and in-person) with residents and proxy users to define the structure of the “Practices” page and overall navigation.
+
+Design Process
+
+Low-Fidelity Sketches & Crazy EightsEach team member sketched ideas independently. We voted on the best features and layouts to move forward.
+
+Mid-Fidelity WireframesWe created user flows and mid-fi wireframes to test interactions and layout with users.
+
+Motivators & Engagement Features
+
+1. GamificationResidents earn points and badges for completing sustainable actions.
+
+2. Physical RewardsIdeas included plaques for front yards and town-branded merchandise.
+
+3. Continuous EngagementThe platform supports ongoing events and challenges to keep residents involved.
+
+4. Community ForumA space for residents to share progress, ask questions, and support each other.
+
+Design System
+
+With five designers on the team, we created a shared moodboard and voted on a unified visual theme. This helped us build a consistent and scalable design system.
+
+User Testing & Iteration
+
+We tested the platform with 7 residents. Key feedback:
+	•	Unclear Purpose: Users didn’t understand the app’s goal or how to earn points.
+	•	Confusing IA: Overlap between categories like “Habitat and Biodiversity” and “Garden Management.”
+	•	Profile Page: Needed better organization to show progress and achievements.
+	•	Mixed Reactions to Gamification: Some users felt it was too playful.
+	•	Points System: Confusion around how points and badges were awarded.
+
+Changes Made:
+	•	Added an “Our Mission” section and improved onboarding
+	•	Refined the Practices IA
+	•	Simplified visual design and content layout
+
+Final Designs
+
+High-fidelity screens were created and handed off for development. The prototype includes:
+	•	Resident onboarding
+	•	Practice tracking
+	•	Community forum
+	•	Admin dashboard
+
+Admin Experience
+
+The admin dashboard provides:
+	•	High-level usage insights
+	•	Household-level activity tracking
+	•	WYSIWYG editing tools for non-technical users
+
+Key Learnings
+
+1. Balancing Gamification and SeriousnessToo much gamification felt gimmicky. We learned to balance fun with meaningful environmental impact.
+
+2. Clarity in CommunicationClear onboarding and in-app messaging are essential to help users understand the platform’s purpose and how to engage with it.
+
+Summary:This project taught me how to design for civic engagement, balance multiple user needs, and create a platform that drives real-world behavior change through thoughtful UX and community-building features.
