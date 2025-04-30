@@ -9,7 +9,7 @@ export default function Home() {
       <PageSection theme="dark">
       <PageSection.ConstrainedWidth>
 
-      <div className="w-full flex items-center h-75vh">
+      <div className="w-full flex items-center h-hero">
         Hi This is me Aaditya
 
       </div>

@@ -16,24 +16,26 @@ vectorstore = Chroma(persist_directory="./chroma_db", embedding_function=embeddi
 # Define your prompt
 prompt = ChatPromptTemplate.from_messages([
     ("system", 
-     "You are a friendly, confident assistant speaking to someone who is learning about Adi (Aaditya Shete). "
-     "The user is *not* Adi. Adi is the subject of the conversation. "
-     "Speak in the second person, as if you're introducing Adi to a friend or colleague. "
-     "Never address Adi directly. Do not say 'Adi, it sounds like you...' or 'From what you’ve described...'. "
-     "Avoid hedging phrases like 'it seems like', 'it sounds like', or 'from what I understand'. "
-     "Only answer questions that are directly related to Adi’s work, background, skills, projects, or personality. "
-     "If a question is unrelated (e.g. about politics, sports, or general trivia), politely respond that you can only answer questions about Adi. "
-     "Do not attempt to answer unrelated questions, even if you know the answer. "
-     "Do not use section headers like 'What Adi Learned' or 'Adi’s Key Contributions'. "
-     "Instead, weave those insights naturally into a confident, conversational response. "
-     "Only answer questions using the information provided in the context. "
-     "**Do not make up projects, roles, or experiences.** "
-     "If the context does not contain the answer, say so politely and suggest asking about a specific project or topic. "
-     "When asked about a project, always include:\n"
-     "- A clear summary of the project\n"
-     "- Adi’s key contributions and responsibilities\n"
-     "- What Adi learned or took away from the experience\n"
-     "Speak with clarity and confidence. If something is unknown, say so honestly but kindly."),
+     "You are a factual assistant and Adi's best friend discussing Adi's work. "
+     "**Response Requirements:**\n"
+     "1. Start directly with the answer\n"
+     "2. Never use phrases like 'According to the provided information' or 'Based on the context'\n"
+     "3. Always use third-person perspective (Adi/he/his)\n"
+     "4. Structure answers as:\n"
+     "   - Key detail 1\n"
+     "   - Key detail 2\n"
+     "   - Key detail 3\n"
+     "5. Never address the user directly\n\n"
+     
+     "1. First extract exact matching quotes\n"
+     "2. Synthesize answer from quotes\n"
+     "3. If no relevant quotes exist, say 'This isn't documented yet'\n"
+     "Example: 'Adi led the Cadence UI redesign [Source 1], focusing on...'\n\n"
+     "Additional constraints:\n"
+     "- Speak in second person about Adi\n"
+     "- No hedging language\n"
+     "- Strictly avoid unsourced information\n"
+     "- Reject non-Adi questions politely"),
     ("human", "{context}\n\n{question}")
 ])
 
@@ -58,16 +60,20 @@ known_projects = [
 def get_qa_chain(question: str):
     project = extract_project_name(question, known_projects)
 
-    if project:
-        retriever = vectorstore.as_retriever(search_kwargs={"filter": {"project": project}})
-    else:
-        retriever = vectorstore.as_retriever(search_kwargs={"k": 3})
+    retriever = vectorstore.as_retriever(
+    search_kwargs={
+        "k": 6,  # Increased from 3 for broader context
+        #"score_threshold": 0.7,  # Minimum relevance threshold
+        "filter": {"project": project} if project else None
+    }
+)
 
     llm = ChatAnthropic(
-        model="claude-3-haiku-20240307",
-        temperature=0.5,
-        max_tokens=1024
-    )
+    model="claude-3-haiku-20240307",
+    temperature=0.2,
+    max_tokens=512,
+    top_p=0.9
+)
 
     return RetrievalQA.from_chain_type(
         llm=llm,
