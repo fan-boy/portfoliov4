@@ -14,7 +14,7 @@ const PageSection = (props: PageSectionProps) => {
 
     return (
         <main className="flex flex-col overflow-x-hidden">
-            <div className={`flex flex-col  items-center  ${props.theme == "dark" ? "bg-backgroundDark text-fontDark" : "bg-backgroundLight text-fontLight"}`}>
+            <div className={`flex flex-col  items-center  ${props.theme == "dark" ? "bg-foreground text-background" : "bg-background text-foreground"}`}>
 
                 {props.children}
 
@@ -36,7 +36,7 @@ PageSection.FullWidth = (props:PageSectionProps) =>(
   )
   
   PageSection.ConstrainedWidth = (props:PageSectionProps) =>(
-    <div className="flex  max-w-xs sm:max-w-3xl md:max-w-5xl ">
+    <div className="flex min-w-xs max-w-xs sm:max-w-3xl sm:min-w-3xl md:max-w-5xl md:min-w-5xl ">
           <div className="flex  flex-col w-full">
           {props.children}
           </div>

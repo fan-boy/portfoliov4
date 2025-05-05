@@ -5,7 +5,7 @@ export default function DefaultPage ({
     selected,
   }: {
     children: React.ReactNode,
-    selected: string,
+    selected?: string,
   }){
     return(
         <>
