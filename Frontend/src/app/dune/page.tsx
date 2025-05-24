@@ -6,11 +6,9 @@ import DefaultPage from "../components/Pages/DefaultPage";
 import OrgDashboard from "../../../public/assets/Dune/dashboard.webp"
 
 
-interface DuneSecurityProps {
 
-}
 
-const DuneSecurity = (props: DuneSecurityProps) => {
+const DuneSecurity = () => {
 
     return (
         <TransitionWrapper>
@@ -27,10 +25,14 @@ const DuneSecurity = (props: DuneSecurityProps) => {
                         </div>
                         </PageSection.ConstrainedWidth>
                         <PageSection.FullWidth>
-                            <Image src={OrgDashboard} className="w-full mt-20"  alt="Dune Org Dashboard"/>
+                            <div className="flex mt-20 flex-col w-full  h-screen pt-10 pl-10 justify-bottom items-right bg-gray-200 rounded-lg ">
+                            <div className="relative  w-full h-full  overflow-hidden p-4 rounded-lg ">
+                            <Image src={OrgDashboard} className=" absolute "  alt="Dune Org Dashboard"/>
+                            </div>
+                            </div>
                         </PageSection.FullWidth>
                         <PageSection.ConstrainedWidth>
-                        <div className="w-full mt-30 flex flex-col gap-20">
+                        <div className="w-full mt-30 items-center flex flex-col gap-20">
                             <span className="w-full grid grid-cols-3">
                                 <span>
                                     <h3>Role</h3>
@@ -45,14 +47,18 @@ const DuneSecurity = (props: DuneSecurityProps) => {
                                     <p>Lead Product designer</p>
                                 </span>
                             </span>
-                            <span className="w-3/4">
-                                <h3>
-                                    Overview
-                                </h3>
+                            <span className="flex flex-row w-full">
+                                <span className="w-2/5">
+                                    <h2>
+                                        Overview
+                                    </h2>
+                                </span>
+                            <span className="w-full flex flex-col gap-4">
+                                
                                 <p>
                                     Dune Security is a next-gen User Adaptive Risk Management platform that helps Fortune 500 CISOs and SecOps teams proactively reduce human-driven cyber risk. As the sole product designer and a core member of the founding team, I led the complete redesign and evolution of our platform-transforming complex security data into actionable, user-centric workflows and driving company growth from $400k to over $1M ARR in under a year.
                                 </p>
-                            </span>
+                                <span className="flex flex-row gap-4">
                             <span className="w-1/2">
                                 <h3>
                                     The Problem
@@ -61,7 +67,7 @@ const DuneSecurity = (props: DuneSecurityProps) => {
                                     Security awareness training is broken, especially in the face of AI-powered phishing and deepfakes. CISOs and security teams are overwhelmed by fragmented data from their security stack (IAM, EDR, DLP, SEG) and lack clear, actionable insights to reduce user risk. Existing solutions felt like static report cards, not dynamic tools for prevention and action.
                                 </p>
                             </span>
-                            <span className="w-3/4 flex flex-col gap-2">
+                            <span className="w-1/2 flex flex-col gap-2">
                                 <h3>
                                     My Role
                                 </h3>
@@ -78,6 +84,11 @@ const DuneSecurity = (props: DuneSecurityProps) => {
                                 </ul>
 
                             </span>
+                            </span>
+                            </span>
+                            
+                            </span>
+                            
                             <hr></hr>
                             <h3>Process & Execution</h3>
                             <span className=" w-3/4 flex flex-col gap-2">

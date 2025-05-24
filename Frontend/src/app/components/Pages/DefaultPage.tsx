@@ -1,11 +1,9 @@
 import React from "react";
 
 export default function DefaultPage ({
-    children,
-    selected,
+    children
   }: {
-    children: React.ReactNode,
-    selected?: string,
+    children: React.ReactNode
   }){
     return(
         <>
