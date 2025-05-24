@@ -1,6 +1,5 @@
 import Image from "next/image";
 import ChatBox from '../app/components/chatbox';
-import DefaultPage from "./components/Pages/DefaultPage";
 import PageSection from "./components/Pages/PageSection";
 import TransitionWrapper from "./components/TransitionWrapper";
 import OrgDashboard from "../../public/assets/Dune/dashboard.webp"
