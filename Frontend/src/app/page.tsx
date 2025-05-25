@@ -48,7 +48,7 @@ export default function Home() {
 
       <section className="w-full bg-white py-16">
         <div className="flex flex-col gap-32 max-w-6xl mx-auto px-6">
-          {projects.map((project, idx) => (
+          {projects.map((project) => (
             <Link
               key={project.title}
               href={project.href}
