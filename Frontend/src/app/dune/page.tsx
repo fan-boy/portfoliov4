@@ -1,7 +1,6 @@
 import React from "react";
 import Image from "next/image";
 import TransitionWrapper from "../components/TransitionWrapper";
-import PageSection from "../components/Pages/PageSection";
 import DefaultPage from "../components/Pages/DefaultPage";
 
 // --- Types ---
