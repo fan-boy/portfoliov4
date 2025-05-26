@@ -1,0 +1,93 @@
+// app/about/page.tsx
+
+"use client";
+import Image from "next/image";
+import React from "react";
+
+const experience = [
+  {
+    company: "Dune Security",
+    title: "Head of Product Design",
+    years: "2024–Present",
+  },
+  {
+    company: "University Park",
+    title: "Product Designer (0→1 Product)",
+    years: "2023–Present",
+  },
+  {
+    company: "Crashr",
+    title: "Product Design Intern",
+    years: "2023",
+  },
+  {
+    company: "Chain Reactive LLC",
+    title: "Lead Product Designer & Full-Stack Developer",
+    years: "2021–2022",
+  },
+  {
+    company: "Ingram Micro India SSC",
+    title: "Product Design Specialist & Software Engineer",
+    years: "2018–2021",
+  },
+];
+
+export default function AboutPage() {
+  return (
+    <main className="min-h-screen bg-white text-gray-900 px-6 py-16 flex flex-col items-center">
+      <section className="max-w-3xl w-full flex flex-col gap-10 items-start">
+        {/* Profile Image Section */}
+        <div className="mb-6 w-full overflow-hidden">
+          <Image
+            src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=600&q=80"
+            alt="Aaditya Shete profile photo"
+            width={640}
+            height={100}
+            className="rounded-lg object-cover w-full border border-gray-200 shadow-sm"
+            priority
+          />
+        </div>
+
+        <div className="w-full">
+          <h1 className="text-4xl font-extrabold mb-2">Aaditya Shete</h1>
+          <h2 className="text-lg font-medium text-gray-600 mb-4">Product Designer, Systems Thinker, Builder</h2>
+          <p className="text-base text-gray-700 mb-4">
+            I design digital products that turn complexity into clarity. My sweet spot? Building 0→1 products and scaling design systems for teams that want to move fast <span className="text-gray-500">(but never break things that matter)</span>.
+          </p>
+          <p className="text-base text-gray-700 mb-4">
+            I’ve led design for AI-powered security platforms, gamified sustainability apps, and food tech tools for small businesses. Whether I’m sketching flows, running workshops, or obsessing over micro-interactions, I’m happiest when I’m helping teams ship work that’s both beautiful and useful.
+          </p>
+          <p className="text-base text-gray-700 mb-4">
+            My journey has taken me from Mumbai to Maryland to New York—across startups, enterprise, and everything in between. I thrive in ambiguity, love a good whiteboard session, and believe that the best products are built by teams who listen deeply and iterate relentlessly.
+          </p>
+          <p className="text-base text-gray-700 mb-4">
+            Outside of work, you’ll find me exploring new cities, reading about behavioral science, or searching for the perfect cup of coffee.
+          </p>
+        </div>
+
+        <div className="w-full">
+          {/* <h3 className="text-xl font-semibold mb-4">Experience</h3> */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-x-6 gap-y-6">
+            {/* <div className="font-semibold text-gray-900">Company</div>
+            <div className="font-semibold text-gray-900">Role</div>
+            <div className="font-semibold text-gray-900">Years</div> */}
+            {experience.map((role) => (
+              <React.Fragment key={role.company}>
+                <div className="text-gray-800">{role.company}</div>
+                <div className="text-gray-700">{role.title}</div>
+                <div className="text-gray-500">{role.years}</div>
+              </React.Fragment>
+            ))}
+          </div>
+        </div>
+
+        <div className="w-full">
+          <h3 className="text-xl font-semibold mb-2">Design Philosophy</h3>
+          <p className="text-base text-gray-700">
+            I believe great design is equal parts empathy, rigor, and craft. I’m driven by the challenge of making the complex feel simple, and I’m energized by collaborating with ambitious teams to build products that matter.
+          </p>
+        </div>
+      </section>
+    </main>
+  );
+}

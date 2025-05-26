@@ -16,11 +16,10 @@ export function Navbar() {
   return (
     <nav className="fixed w-full flex justify-center top-5 z-10">
       <KeyboardNav />
-      <div className="flex gap-4 rounded-full bg-white/80 backdrop-blur px-4 py-2 shadow-md border border-gray-200 items-center">
+      <div className="flex gap-2 rounded-full bg-white/80 backdrop-blur px-2 py-1 shadow-md border border-gray-200 items-center">
         {navItems.map(({ href, label, letter }) => {
           let isActive = false;
           if (href === '/') {
-            // Active for /, /dune, /chainreactive, etc. but NOT /about or /contact
             isActive =
               pathname === '/' ||
               /^\/(dune|chainreactive|universitypark)/.test(pathname);
