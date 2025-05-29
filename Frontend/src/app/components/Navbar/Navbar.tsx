@@ -16,7 +16,7 @@ export function Navbar() {
   return (
     <nav className="fixed w-full flex justify-center top-5 z-10">
       <KeyboardNav />
-      <div className="flex gap-2 rounded-full bg-white/80 backdrop-blur px-2 py-1 shadow-md border border-gray-200 items-center">
+      <div className="flex gap-2 rounded-full bg-background/80 backdrop-blur px-2 py-1 shadow-md border border-gray-200 items-center">
         {navItems.map(({ href, label, letter }) => {
           let isActive = false;
           if (href === '/') {

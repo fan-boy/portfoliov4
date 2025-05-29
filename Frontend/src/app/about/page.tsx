@@ -3,6 +3,7 @@
 "use client";
 import Image from "next/image";
 import React from "react";
+import Profile from "../../../public/assets/About/profile.webp";
 
 const experience = [
   {
@@ -34,12 +35,12 @@ const experience = [
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen bg-white text-gray-900 px-6 py-16 flex flex-col items-center">
+    <main className="min-h-screen bg-background text-gray-900 px-6 py-16 flex flex-col items-center">
       <section className="max-w-3xl w-full flex flex-col gap-10 items-start">
         {/* Profile Image Section */}
         <div className="mb-6 w-full overflow-hidden">
           <Image
-            src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=600&q=80"
+            src={Profile}
             alt="Aaditya Shete profile photo"
             width={640}
             height={100}

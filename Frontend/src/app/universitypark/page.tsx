@@ -16,7 +16,7 @@ type FullImageProps = {
 
 // --- Components ---
 const Section: React.FC<SectionProps> = ({ children, altBg = false }) => (
-  <section className={`${altBg ? "bg-gray-50" : "bg-white"} border-t border-gray-100 py-16`}>
+  <section className={`${altBg ? "bg-gray-50" : "bg-background"} border-t border-gray-100 py-16`}>
     <div className="max-w-3xl mx-auto px-6">{children}</div>
   </section>
 );

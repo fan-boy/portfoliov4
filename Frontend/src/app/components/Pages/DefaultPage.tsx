@@ -7,7 +7,7 @@ export default function DefaultPage ({
   }){
     return(
         <>
-        <main className="flex flex-col">
+        <main className="flex flex-col items-center">
             {children}
         </main>
         </>

@@ -2,6 +2,9 @@ import React from "react";
 import Image from "next/image";
 import TransitionWrapper from "../components/TransitionWrapper";
 import DefaultPage from "../components/Pages/DefaultPage";
+import OrgDashboard from "../../../public/assets/Dune/dashboard.webp";
+import { StaticImport } from "next/dist/shared/lib/get-img-props";
+import PageSection from "../components/Pages/PageSection";
 
 // --- Types ---
 type SectionProps = {
@@ -10,29 +13,42 @@ type SectionProps = {
 };
 
 type FullImageProps = {
-  src: string;
+  src: StaticImport|string;
   alt: string;
 };
 
 // --- Components ---
 const Section: React.FC<SectionProps> = ({ children, altBg = false }) => (
-  <section className={`${altBg ? "bg-gray-50" : "bg-white"} border-t border-gray-100 py-16`}>
+  <section className={`${altBg ? "bg-white" : "bg-background"}  pt-20`}>
     <div className="max-w-3xl mx-auto px-6">{children}</div>
   </section>
 );
 
 const FullImage: React.FC<FullImageProps> = ({ src, alt }) => (
-  <div className="w-full my-12">
-    <div className="relative w-full aspect-[2.5/1] rounded-2xl overflow-hidden shadow-md">
-      <Image
-        src={src}
-        alt={alt}
-        fill
-        className="object-cover"
-        sizes="100vw"
-        priority
-      />
-    </div>
+  // <div className="w-full mx-12 overflow-hidden my-12">
+  //   {/* <div className="relative w-full aspect-3/2 rounded-2xl overflow-hidden shadow-md">
+  //     <Image
+  //       src={src}
+  //       alt={alt}
+  //       fill
+  //       sizes="100vw"
+  //       priority
+  //     />
+  //   </div> */}
+
+    <div className="w-full px-12 flex-shrink-0">
+                 <div className="md:relative w-full p-20 bg-green-100 overflow-hidden flex justify-center items-center rounded-lg">
+                  <div className=" ">
+                   
+                     <Image
+                       src={OrgDashboard}
+                       alt={"Org Dashboard"}
+                       className="w-full rounded-lg"
+                       priority
+                     />
+                   
+                 </div>
+               </div>
   </div>
 );
 
@@ -52,36 +68,61 @@ const DuneSecurity: React.FC = () => (
   <TransitionWrapper>
     <DefaultPage>
       {/* Header */}
-      <Section>
-        <h1 className="text-5xl font-extrabold tracking-tight mb-6">Dune Security: Redefining User Adaptive Risk Management</h1>
-        <div className="flex flex-wrap gap-8 text-gray-500 text-base mb-8">
-          <span><strong>Role:</strong> Lead Product Designer, Founding Team</span>
-          <span><strong>Year:</strong> 2023–2024</span>
-          <span><strong>Team:</strong> CEO, CTO, PM, Engineers</span>
-          <span><strong>Product:</strong> User Adaptive Risk Management for Fortune 500 CISOs & SecOps</span>
+      <PageSection>
+        <div className="w-full flex flex-col gap-16">
+        <PageSection.FullWidth>
+        <div className="w-10/12 mt-32 flex flex ">
+      <span className="w-4/12">
+        <h2 className="text-4xl font-extrabold text-gray-500 tracking-tight ">Dune Security</h2>
+        </span>
+      <span className="w-8/12">
+        <h2 className="text-5xl  font-extrabold tracking-tight ">Redefining User Adaptive Risk Management</h2>
+        </span>
+       
+        
         </div>
-        <p className="text-xl text-gray-700 leading-relaxed font-light mb-2">
+        <div className="w-10/12 flex flex mb-6">
+      
+        <span className="w-4/12">
+        {/* <h2 className="text-4xl font-extrabold text-gray-500 tracking-tight mb-6">Dune Security</h2> */}
+        </span>
+      <span className="w-6/12 flex flex-row gap-4 text-gray-500 text-base mb-8 mt-3">
+      <span>2024-present,</span>
+      <span>Product Design, Research, Product Strategy</span>
+         
+        </span>
+        
+        </div>
+        <FullImage src={OrgDashboard} alt="Collage of fragmented dashboards (placeholder)" />
+        </PageSection.FullWidth>
+        <PageSection.ConstrainedWidth>
+          <span className="flex flex-col gap-16">
+          <span className="text-gray-700 leading-relaxed font-light mb-2 p-8 mt-12 flex flex-col gap-4 bg-gray-50 rounded-lg">
+            <h3>Summary</h3>
+          <p className="text-xl ">
           As the sole product designer, I led a ground-up redesign of Dune Security’s platform—transforming fragmented, complex security data into actionable, user-centric workflows. My work not only improved the product experience but also drove strategic shifts in how the company positioned, sold, and scaled the platform.
         </p>
-      </Section>
 
-      <FullImage src={catImages[0]} alt="Collage of fragmented dashboards (placeholder)" />
-
-      {/* The Challenge */}
-      <Section altBg>
-        <h2 className="text-2xl font-bold mb-6">The Challenge</h2>
+          </span>
+          <span>
+          <h2 className="text-2xl font-bold mb-6">The Challenge</h2>
         <p className="mb-4 text-lg leading-relaxed font-light">
           Security awareness training was failing to keep pace with AI-powered threats. CISOs and security teams were overwhelmed by fragmented data (IAM, EDR, DLP, SEG) and lacked actionable insights to reduce human-driven cyber risk. Existing tools felt like static report cards, not dynamic control centers for prevention and action.
         </p>
         <blockquote className="border-l-4 border-indigo-400 pl-6 italic text-gray-600 bg-indigo-50/30 py-3 rounded-md mb-2">
           “I can’t tell which users are putting us most at risk.” – Fortune 500 CISO
         </blockquote>
-      </Section>
-
-      <FullImage src={catImages[1]} alt="Roadmap snapshot or prioritization matrix (placeholder)" />
-
-      {/* Hypotheses & Success Metrics */}
-      <Section>
+          </span>
+          </span>
+        
+        </PageSection.ConstrainedWidth>
+        <PageSection.FullWidth>
+        <div className="w-full">
+        <FullImage src={OrgDashboard} alt="Roadmap snapshot or prioritization matrix (placeholder)" />
+        </div>
+        </PageSection.FullWidth>
+        <PageSection.ConstrainedWidth>
+          <span className="w-full flex flex-col">
         <h2 className="text-2xl font-bold mb-6">Hypotheses & Success Metrics</h2>
         <ul className="list-disc pl-6 space-y-2 text-lg font-light mb-4">
           <li>Real-time, actionable risk insights (vs. compliance checklists) will increase CISO engagement and drive faster risk mitigation.</li>
@@ -94,23 +135,44 @@ const DuneSecurity: React.FC = () => (
           <li>Expansion to new enterprise clients</li>
           <li>Faster time-to-production for new features</li>
         </ul>
-      </Section>
-
-      <FullImage src={catImages[2]} alt="User quotes, persona profiles, or affinity maps (placeholder)" />
-
-      {/* Business & Product Strategy */}
-      <Section altBg>
-        <h2 className="text-2xl font-bold mb-6">Business & Product Strategy</h2>
+        </span>
+        </PageSection.ConstrainedWidth>
+        <PageSection.FullWidth>
+        <div className="w-full">
+        <FullImage src={OrgDashboard} alt="Roadmap snapshot or prioritization matrix (placeholder)" />
+        </div>
+        </PageSection.FullWidth>
+        <PageSection.ConstrainedWidth>
+          <span className="w-full flex flex-col">
+          <h2 className="text-2xl font-bold mb-6">Business & Product Strategy</h2>
         <p className="mb-4 text-lg leading-relaxed font-light">
           I co-created the product roadmap with the CEO and CTO, using a RICE scoring model to prioritize features that balanced user impact and engineering effort. For example, we launched the adaptive training module before advanced analytics, as user interviews revealed immediate pain around manual interventions. This accelerated customer value and improved our sales narrative.
         </p>
         <p className="mb-4 text-lg leading-relaxed font-light">
           I also worked closely with the GTM team, translating user research into sales enablement materials and product messaging. The new risk score visualization became a core part of our sales pitch, helping the GTM team clearly articulate ROI to prospects and close deals more effectively.
         </p>
-      </Section>
+        </span>
+        </PageSection.ConstrainedWidth>
+        <PageSection.FullWidth>
+        <div className="w-full">
+        <FullImage src={OrgDashboard} alt="Roadmap snapshot or prioritization matrix (placeholder)" />
+        </div>
+        </PageSection.FullWidth>
+        </div>
+      </PageSection>
+      
+        
+       
+      
+     
 
-      <FullImage src={catImages[3]} alt="Wireframes or flow diagrams of the risk score dashboard (placeholder)" />
+     
 
+     
+
+     
+
+     
       {/* User Research & Insights */}
       <Section>
         <h2 className="text-2xl font-bold mb-6">User Research & Insights</h2>
