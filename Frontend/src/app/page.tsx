@@ -36,20 +36,22 @@ export default function Home() {
   return (
     <TransitionWrapper>
       {/* Hero Section */}
-      <section className="w-full py-24 bg-background">
+      <section className="w-full mt-48 bg-background">
         <div className="max-w-3xl mx-auto px-6 flex flex-col items-start gap-6 font-sans">
-          <p className="text-lg text-gray-500 tracking-wide">Aaditya Shete</p>
-          <h1 className="text-5xl font-extrabold tracking-tight leading-tight">
-            Designing systems that scale<br />with clarity.
+          <span className=" flex flex-col gap-6">
+          <h3 className=" text-fontsecondary font-regular  tracking-wide">Aaditya Shete</h3>
+          <h1 className=" tracking-tight text-fontprimary font-medium  leading-tight">
+            Designing systems that scale with clarity.
           </h1>
-          <div className="text-xl text-gray-600 font-light mt-2">
-            <p>A product designer blending visual clarity with AI-first workflows.</p>
-            <p>Currently at <span className="font-semibold text-gray-800">Dune Security</span>.</p>
+          <div className=" text-fontsecondary ">
+            <h4>A product designer blending visual clarity with AI-first workflows.</h4>
+            <h4>Currently at <span className="font-medium text-fontprimary">Dune Security</span>.</h4>
           </div>
+          </span>
         </div>
       </section>
 
-      <section className="w-full bg-background py-16">
+      <section className="w-full bg-background mt-24 py-16">
         <div className="flex flex-col gap-32 max-w-6xl mx-auto px-6">
           {projects.map((project) => (
            <motion.div
@@ -62,8 +64,8 @@ export default function Home() {
              <div className="flex flex-col gap-8 w-full">
                {/* Text Block */}
                <div className="flex-1 flex flex-col md:flex-row w-full justify-between items-start md:pt-8">
-                 <h2 className="text-2xl md:text-3xl font-bold mb-2 text-gray-900">{project.title}</h2>
-                 <p className="text-lg w-1/2 md:text-xl font-light mb-4 text-gray-600">{project.subtitle}</p>
+                 <h2 className="text-2xl md:text-3xl mb-2 font-medium text-fontsecondary">{project.title}</h2>
+                 <p className="text-lg w-1/2 md:text-xl font-light mb-4 text-fontprimary">{project.subtitle}</p>
                </div>
                {/* Image Box */}
                <div className="w-full flex-shrink-0">
