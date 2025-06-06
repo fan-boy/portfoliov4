@@ -50,18 +50,18 @@ export default function AboutPage() {
         </div>
 
         <div className="w-full">
-          <h1 className="text-4xl font-extrabold mb-2">Aaditya Shete</h1>
-          <h2 className="text-lg font-medium text-gray-600 mb-4">Product Designer, Systems Thinker, Builder</h2>
-          <p className="text-base text-gray-700 mb-4">
+          <h1 className="text-fontprimary font-medium mb-2">Aaditya Shete</h1>
+          <h2 className="text-fontsecondary  mb-4">Product Designer, Systems Thinker, Builder</h2>
+          <p className="text-fontsecondary mb-4">
             I design digital products that turn complexity into clarity. My sweet spot? Building 0→1 products and scaling design systems for teams that want to move fast <span className="text-gray-500">(but never break things that matter)</span>.
           </p>
-          <p className="text-base text-gray-700 mb-4">
+          <p className="text-fontsecondary mb-4">
             I’ve led design for AI-powered security platforms, gamified sustainability apps, and food tech tools for small businesses. Whether I’m sketching flows, running workshops, or obsessing over micro-interactions, I’m happiest when I’m helping teams ship work that’s both beautiful and useful.
           </p>
-          <p className="text-base text-gray-700 mb-4">
+          <p className="text-fontsecondary mb-4">
             My journey has taken me from Mumbai to Maryland to New York—across startups, enterprise, and everything in between. I thrive in ambiguity, love a good whiteboard session, and believe that the best products are built by teams who listen deeply and iterate relentlessly.
           </p>
-          <p className="text-base text-gray-700 mb-4">
+          <p className="text-fontsecondary mb-4">
             Outside of work, you’ll find me exploring new cities, reading about behavioral science, or searching for the perfect cup of coffee.
           </p>
         </div>

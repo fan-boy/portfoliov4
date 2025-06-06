@@ -1,10 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap');
 @import "tailwindcss";
 
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
   --foregroundtwo: #707070;
+}
+
+body, * {
+  cursor: none !important;
 }
 
 @theme inline {

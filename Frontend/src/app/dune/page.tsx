@@ -20,7 +20,7 @@ const DuneSecurity: React.FC = () => (
           <PageSection.FullWidth>
             <div className="w-10/12 mt-48 flex flex ">
               <span className="w-4/12">
-                <h2 className="text-gray-500 tracking-tight text-fontsecondary">Dune Security</h2>
+                <h2 className=" tracking-tight text-fontsecondary">Dune Security</h2>
               </span>
               <span className="w-8/12">
                 <h2 className="tracking-tight text-fontprimary">Redefining User Adaptive Risk Management</h2>
@@ -33,7 +33,7 @@ const DuneSecurity: React.FC = () => (
               <span className="w-4/12">
                 {/* <h2 className="text-4xl font-extrabold text-gray-500 tracking-tight mb-6">Dune Security</h2> */}
               </span>
-              <span className="w-6/12 flex flex-row gap-4 text-fontsecondary text-base mb-8 mt-3">
+              <span className="w-6/12 flex flex-row gap-4 text-fontsecondary mb-8 mt-3">
                 <span>2024-present,</span>
                 <span>Product Design, Research, Product Strategy</span>
 

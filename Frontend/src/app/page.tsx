@@ -5,6 +5,7 @@ import TransitionWrapper from "./components/TransitionWrapper";
 import DuneOrgDashboard from "../../public/assets/Dune/dashboard.webp";
 import UniversityParkUserProfile from "../../public/assets/UniversityPark/userprofile.webp";
 import { motion } from "framer-motion";
+import AnimatedBackground from "./components/AnimatedGradient";
 // import Cat1 from "../../public/assets/UniversityPark/hero.webp";
 // import Cat2 from "../../public/assets/ChainReactive/hero.webp";
 
@@ -34,9 +35,11 @@ const projects = [
 
 export default function Home() {
   return (
+    <>
+    <div className="bg-background" style={{ position: "relative", zIndex: 1 }}>
     <TransitionWrapper>
       {/* Hero Section */}
-      <section className="w-full mt-48 bg-background">
+      <section className="w-full mt-48 ">
         <div className="max-w-3xl mx-auto px-6 flex flex-col items-start gap-6 font-sans">
           <span className=" flex flex-col gap-6">
           <h3 className=" text-fontsecondary font-regular  tracking-wide">Aaditya Shete</h3>
@@ -51,7 +54,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="w-full bg-background mt-24 py-16">
+      <section className="w-full mt-24 py-16">
         <div className="flex flex-col gap-32 max-w-6xl mx-auto px-6">
           {projects.map((project) => (
            <motion.div
@@ -103,6 +106,9 @@ export default function Home() {
           ))}
         </div>
       </section>
+      
     </TransitionWrapper>
+    </div>
+    </>
   );
 }
