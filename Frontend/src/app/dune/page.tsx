@@ -13,7 +13,6 @@ import { ArrowUp, ArrowDown, ArrowsOutLineVertical, Timer } from "phosphor-react
 import PageSection from "../components/Pages/PageSection";
 import FullImage from "../components/Pages/FullImage";
 import Divider from "../components/Miscelaneous/Divider";
-import Footer from "../components/Miscelaneous/footer";
 
 
 
