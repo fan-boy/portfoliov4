@@ -1,12 +1,19 @@
+'use client'
 import React from "react";
 
 import TransitionWrapper from "../components/TransitionWrapper";
 import DefaultPage from "../components/Pages/DefaultPage";
 import OrgDashboard from "../../../public/assets/Dune/dashboard.webp";
-import before from "../../../public/assets/Dune/before.webp";
+import architecture from "../../../public/assets/Dune/architecture.webp";
+import battlecard from "../../../public/assets/Dune/battlecard.webp";
+
+import { ArrowUp, ArrowDown, ArrowsOutLineVertical, Timer } from "phosphor-react";
+
 
 import PageSection from "../components/Pages/PageSection";
 import FullImage from "../components/Pages/FullImage";
+import Divider from "../components/Miscelaneous/Divider";
+import Footer from "../components/Miscelaneous/footer";
 
 
 
@@ -40,7 +47,7 @@ const DuneSecurity: React.FC = () => (
               </span>
 
             </div>
-            
+
             <FullImage src={OrgDashboard} alt="Collage of fragmented dashboards (placeholder)" />
           </PageSection.FullWidth>
           <PageSection.ConstrainedWidth>
@@ -66,42 +73,62 @@ const DuneSecurity: React.FC = () => (
           </PageSection.ConstrainedWidth>
           <PageSection.FullWidth>
             <div className="w-full">
-              <FullImage src={before} alt="Roadmap snapshot or prioritization matrix (placeholder)" />
+              <FullImage src={architecture} alt="Roadmap snapshot or prioritization matrix (placeholder)" bg={false} />
             </div>
           </PageSection.FullWidth>
+          <Divider />
           <div className="w-full flex flex-col gap-16">
-          <PageSection.ConstrainedWidth>
-            <span className="w-full flex items-left flex-col">
-              <h2 className="w-full text-fontprimary mb-6">Hypotheses & Success Metrics</h2>
-              <ul className="list-disc pl-6 space-y-2 text-fontsecondary mb-4">
-                <li>Real-time, actionable risk insights (vs. compliance checklists) will increase CISO engagement and drive faster risk mitigation.</li>
-                <li>Adaptive, automated training will raise employee completion rates and reduce manual workload for security teams.</li>
-                <li>A unified design system will speed up development and improve platform consistency.</li>
-              </ul>
-            </span>
-           </PageSection.ConstrainedWidth>
-           <PageSection.FullWidth>
-            <span className="w-full flex flex-col gap-4">
-              
-              
-
-              <span className=" grid grid-cols-4 gap-4">
-              <span className="p-5 bg-green-100 rounded-lg">↑ Employee training completion rates</span>
-              <span className="p-5 bg-green-100 rounded-lg">↓ Dashboard-related support tickets</span>
-              <span className="p-5 bg-green-100 rounded-lg">Expansion to new enterprise clients</span>
-              <span className="p-5 bg-green-100 rounded-lg">Faster time-to-production for new features</span>
-              
-        
+            <PageSection.ConstrainedWidth>
+              <span className="w-full flex items-left flex-col">
+                <h2 className="w-full text-fontprimary mb-6">Hypotheses & Success Metrics</h2>
+                <ul className="list-disc pl-6 space-y-2 text-fontsecondary mb-4">
+                  <li>Real-time, actionable risk insights (vs. compliance checklists) will increase CISO engagement and drive faster risk mitigation.</li>
+                  <li>Adaptive, automated training will raise employee completion rates and reduce manual workload for security teams.</li>
+                  <li>A unified design system will speed up development and improve platform consistency.</li>
+                </ul>
               </span>
-             
-            </span>
+            </PageSection.ConstrainedWidth>
+            <PageSection.FullWidth>
+              <span className="w-full flex flex-col gap-4">
+
+
+
+                <span className=" grid grid-cols-4 gap-4">
+                <span className="flex flex-col items-start p-6 bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow transition">
+    <ArrowUp size={28} weight="duotone" className="text-gray-400 mb-2" />
+    <h4 className="text-fontprimary leading-snug">Employee training completion rates</h4>
+  </span>
+  <span className="flex flex-col items-start p-6 bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow transition">
+    <ArrowDown size={28} weight="duotone" className="text-gray-400 mb-2" />
+    <h4 className="text-fontprimary leading-snug">Dashboard-related support tickets</h4>
+  </span>
+  <span className="flex flex-col items-start p-6 bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow transition">
+    <ArrowsOutLineVertical size={28} weight="duotone" className="text-gray-400 mb-2" />
+    <h4 className="text-fontprimary  leading-snug">Expansion to new enterprise clients</h4>
+  </span>
+  <span className="flex flex-col items-start p-6 bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow transition">
+    <Timer size={28} weight="duotone" className="text-gray-400 mb-2" />
+    <h4 className="text-fontprimary leading-snug">Faster time-to-production for new features</h4>
+  </span>
+
+
+
+                </span>
+
+              </span>
             </PageSection.FullWidth>
-            </div>
-          <PageSection.FullWidth>
+
+
+          </div>
+
+          <Divider />
+
+
+          {/* <PageSection.FullWidth>
             <div className="w-full">
               <FullImage src={OrgDashboard} alt="Roadmap snapshot or prioritization matrix (placeholder)" />
             </div>
-          </PageSection.FullWidth>
+          </PageSection.FullWidth> */}
           <PageSection.ConstrainedWidth>
             <span className="w-full flex flex-col">
               <h2 className="text-fontprimary mb-6">Business & Product Strategy</h2>
@@ -113,11 +140,13 @@ const DuneSecurity: React.FC = () => (
               </p>
             </span>
           </PageSection.ConstrainedWidth>
-          <PageSection.FullWidth>
+          {/* <PageSection.FullWidth>
             <div className="w-full">
               <FullImage src={OrgDashboard} alt="Roadmap snapshot or prioritization matrix (placeholder)" />
             </div>
-          </PageSection.FullWidth>
+          </PageSection.FullWidth> */}
+
+          <Divider />
           <PageSection.ConstrainedWidth>
             <span className="w-full flex flex-col">
               <h2 className="text-fontprimary mb-6">User Research & Insights</h2>
@@ -133,10 +162,13 @@ const DuneSecurity: React.FC = () => (
           </PageSection.ConstrainedWidth>
           <PageSection.FullWidth>
             <div className="w-full">
-              <FullImage src={OrgDashboard} alt="Roadmap snapshot or prioritization matrix (placeholder)" />
+              <FullImage src={battlecard} alt="Roadmap snapshot or prioritization matrix (placeholder)" bg={false} />
             </div>
           </PageSection.FullWidth>
+          <Divider />
+
           <PageSection.ConstrainedWidth>
+
             <span className="w-full flex flex-col">
               <h2 className="text-fontprimary mb-6">Design Process</h2>
               <h3 className="text-fontprimary mt-4 mb-2">Making Data Actionable</h3>
@@ -162,6 +194,7 @@ const DuneSecurity: React.FC = () => (
               <FullImage src={OrgDashboard} alt="Roadmap snapshot or prioritization matrix (placeholder)" />
             </div>
           </PageSection.FullWidth>
+          <Divider />
           <PageSection.ConstrainedWidth>
             <span className="w-full flex flex-col">
               <h2 className="text-fontprimary mb-6">Key Decisions & Pivots</h2>
@@ -177,6 +210,7 @@ const DuneSecurity: React.FC = () => (
               <FullImage src={OrgDashboard} alt="Roadmap snapshot or prioritization matrix (placeholder)" />
             </div>
           </PageSection.FullWidth>
+          <Divider />
           <PageSection.ConstrainedWidth>
             <span className="w-full flex flex-col">
               <h2 className="text-fontprimary mb-6">Org-Level Impact</h2>
@@ -193,6 +227,7 @@ const DuneSecurity: React.FC = () => (
               <FullImage src={OrgDashboard} alt="Roadmap snapshot or prioritization matrix (placeholder)" />
             </div>
           </PageSection.FullWidth>
+          <Divider />
           <PageSection.ConstrainedWidth>
             <span className="w-full flex flex-col">
               <h2 className="text-fontprimary mb-6">Outcomes & Impact</h2>
@@ -209,6 +244,7 @@ const DuneSecurity: React.FC = () => (
               <FullImage src={OrgDashboard} alt="Roadmap snapshot or prioritization matrix (placeholder)" />
             </div>
           </PageSection.FullWidth>
+          <Divider />
           <PageSection.ConstrainedWidth>
             <span className="w-full flex flex-col">
               <h2 className="text-fontprimary mb-6">Reflection & Learnings</h2>
@@ -219,6 +255,7 @@ const DuneSecurity: React.FC = () => (
           </PageSection.ConstrainedWidth>
         </div>
       </PageSection>
+      
     </DefaultPage>
   </TransitionWrapper>
 );

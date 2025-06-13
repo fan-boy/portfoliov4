@@ -1,24 +1,24 @@
+// components/CustomCursor.tsx
 "use client";
-import React, { useEffect, useRef, useState } from "react";
-import { motion, useMotionValue, useSpring } from "framer-motion";
+import React, { useEffect, useState } from "react";
+import { motion, useMotionValue } from "framer-motion";
+import { usePathname } from "next/navigation";
 
 const CLICKABLE_SELECTORS =
   "a, button, [role='button'], input, select";
 
-// Less bouncy spring config
-const springConfig = { damping: 90, stiffness: 500 };
-
 const CustomCursor: React.FC = () => {
-  const cursorRef = useRef<HTMLDivElement>(null);
-  const [hovered, setHovered] = useState<boolean>(false);
+  const [hovered, setHovered] = useState(false);
+  const [visible, setVisible] = useState(true);
 
-  // Mouse position
   const mouseX = useMotionValue(-100);
   const mouseY = useMotionValue(-100);
 
-  // Smooth spring animation
-  const cursorX = useSpring(mouseX, springConfig);
-  const cursorY = useSpring(mouseY, springConfig);
+  const pathname = usePathname();
+
+  useEffect(() => {
+    setHovered(false); // Reset hover state on route change
+  }, [pathname]);
 
   useEffect(() => {
     const moveCursor = (e: MouseEvent) => {
@@ -26,7 +26,6 @@ const CustomCursor: React.FC = () => {
       mouseY.set(e.clientY);
     };
 
-    // Detect hover on clickable elements
     const handleMouseOver = (e: MouseEvent) => {
       if ((e.target as Element)?.closest(CLICKABLE_SELECTORS)) setHovered(true);
     };
@@ -34,9 +33,18 @@ const CustomCursor: React.FC = () => {
       if ((e.target as Element)?.closest(CLICKABLE_SELECTORS)) setHovered(false);
     };
 
+    const handleMouseLeaveWindow = () => {
+      setVisible(false);
+      mouseX.set(-100);
+      mouseY.set(-100);
+    };
+    const handleMouseEnterWindow = () => setVisible(true);
+
     window.addEventListener("mousemove", moveCursor);
-    document.addEventListener("mouseover", handleMouseOver);
-    document.addEventListener("mouseout", handleMouseOut);
+    document.addEventListener("mouseover", handleMouseOver, true);
+    document.addEventListener("mouseout", handleMouseOut, true);
+    window.addEventListener("mouseleave", handleMouseLeaveWindow);
+    window.addEventListener("mouseenter", handleMouseEnterWindow);
 
     // Hide default cursor
     const originalCursor = document.body.style.cursor;
@@ -44,30 +52,36 @@ const CustomCursor: React.FC = () => {
 
     return () => {
       window.removeEventListener("mousemove", moveCursor);
-      document.removeEventListener("mouseover", handleMouseOver);
-      document.removeEventListener("mouseout", handleMouseOut);
+      document.removeEventListener("mouseover", handleMouseOver, true);
+      document.removeEventListener("mouseout", handleMouseOut, true);
+      window.removeEventListener("mouseleave", handleMouseLeaveWindow);
+      window.removeEventListener("mouseenter", handleMouseEnterWindow);
       document.body.style.cursor = originalCursor;
     };
   }, [mouseX, mouseY]);
 
+  const size = hovered ? 32 : 12;
+  const offset = size / 2;
+
   return (
     <motion.div
-      ref={cursorRef}
       style={{
         position: "fixed",
-        top: 0,
         left: 0,
-        x: cursorX,
-        y: cursorY,
+        top: 0,
+        width: size,
+        height: size,
+        borderRadius: "50%",
+        background: hovered ? "rgba(99, 102, 241, 0.1)" : "#615fff",
+        border: hovered ? "2px solid #615fff" : "none",
         pointerEvents: "none",
         zIndex: 9999,
-        width: hovered ? 32 : 12,
-        height: hovered ? 32 : 12,
-        borderRadius: "50%",
-        background: hovered ? "rgba(99, 102, 241, 0.1)" : "#615fff", // indigo-500
-        border: hovered ? "2px solid #615fff" : "none",
-        //mixBlendMode: "difference",
-        transition: "background 0.2s, border 0.2s",
+        x: mouseX,
+        y: mouseY,
+        translateX: -offset,
+        translateY: -offset,
+        opacity: visible ? 1 : 0,
+        transition: "background 0.2s, border 0.2s, width 0.2s, height 0.2s, opacity 0.15s",
       }}
       animate={{
         scale: hovered ? 1.5 : 1,

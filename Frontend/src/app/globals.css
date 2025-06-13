@@ -12,6 +12,16 @@ body, * {
   cursor: none !important;
 }
 
+.section-divider {
+  border: none;
+  border-top: 2px solid var(--color-foreground);
+  opacity: 0.5;
+  margin: var(--space-xl) 0;
+  width: 100%;
+  max-width: 1200px;
+  background: none;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-fontprimary: var(--foreground);

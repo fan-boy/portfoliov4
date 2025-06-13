@@ -1,4 +1,5 @@
 import React from "react";
+import Footer from "../Miscelaneous/footer";
 
 export default function DefaultPage ({
     children
@@ -10,6 +11,7 @@ export default function DefaultPage ({
         <main className="flex flex-col items-center">
             {children}
         </main>
+        <Footer />
         </>
     )
 }
