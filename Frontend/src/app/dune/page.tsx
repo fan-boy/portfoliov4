@@ -7,6 +7,8 @@ import OrgDashboard from "../../../public/assets/Dune/dashboard.webp";
 import architecture from "../../../public/assets/Dune/architecture.webp";
 import battlecard from "../../../public/assets/Dune/battlecard.webp";
 import DesignSystem from "../../../public/assets/Dune/DesignSystem.webp";
+import OldDashboard from "../../../public/assets/Dune/OldOrganization.webp";
+import Customers from "../../../public/assets/Dune/customers.webp";
 
 
 import { ArrowUp, ArrowDown, ArrowsOutLineVertical, Timer } from "phosphor-react";
@@ -16,6 +18,7 @@ import PageSection from "../components/Pages/PageSection";
 import FullImage from "../components/Miscelaneous/FullImage";
 import Divider from "../components/Miscelaneous/Divider";
 import FullMedia from "../components/Miscelaneous/FullMedia";
+import BeforeAfterSlider from "../components/Miscelaneous/BeforeAfterSlider";
 
 
 
@@ -155,7 +158,7 @@ const DuneSecurity: React.FC = () => (
               <ul className="list-disc pl-6 space-y-2 text-fontsecondary mb-4">
                 <li>CISO Committee: Tapped 50+ CISOs for feedback—highlighting the need for real-time, actionable insights.</li>
                 <li>Customer Success Feedback: Weekly check-ins surfaced core pain points and usability issues.</li>
-                <li>Competitive Analysis: Benchmarked KnowBe4, Hoxhunt, Wiz, and others for opportunities in clarity, speed, and differentiation.</li>
+                <li>Competitive Analysis: Benchmarked KnowBe4, Hoxhunt, Proofpoint PSAT, and others for opportunities in clarity, speed, and differentiation.</li>
               </ul>
               <blockquote className="border-l-4 border-indigo-400 pl-6 italic text-gray-600 bg-indigo-50/30 py-3 rounded-md mb-2">
                 “The dashboard feels like a report card, not a control center.”
@@ -183,7 +186,7 @@ const DuneSecurity: React.FC = () => (
             </PageSection.ConstrainedWidth>
 
             <PageSection.FullWidth>
-              <FullMedia src={"/assets/Dune/OrgToUserDrillDown.mp4"} bg={false} alt="Organization to Department to User Risk drilldown "/>
+              <FullMedia src={"/assets/Dune/OrgToUserDrillDown.mp4"} containerPadding="p-24" bg={false} alt="Organization to Department to User Risk drilldown "/>
             </PageSection.FullWidth>
             <PageSection.ConstrainedWidth>
             <span>
@@ -195,7 +198,7 @@ const DuneSecurity: React.FC = () => (
               </span>
               </PageSection.ConstrainedWidth>
             <PageSection.FullWidth>
-              <FullMedia src={DesignSystem} containerPadding=" rounded-lg" padding="shadow-lg p-20" bg={false} alt="Organization to Department to User Risk drilldown "/>
+              <FullMedia src={DesignSystem} containerPadding=" p-24 rounded-lg"  bg={false} alt="Organization to Department to User Risk drilldown "/>
             </PageSection.FullWidth>
             <PageSection.ConstrainedWidth>
               <span>
@@ -221,10 +224,8 @@ const DuneSecurity: React.FC = () => (
             </span>
           </PageSection.ConstrainedWidth>
           <PageSection.FullWidth>
-            <div className="w-full">
-              <FullImage src={OrgDashboard} alt="Roadmap snapshot or prioritization matrix (placeholder)" />
-            </div>
-          </PageSection.FullWidth>
+              <FullMedia src={"/assets/Dune/KeyPivots.mp4"} containerPadding="p-24" bg={false} alt="Organization to Department to User Risk drilldown "/>
+            </PageSection.FullWidth>
           <Divider />
           <PageSection.ConstrainedWidth>
             <span className="w-full flex flex-col">
@@ -232,16 +233,23 @@ const DuneSecurity: React.FC = () => (
               <p className="mb-4 leading-relaxed text-fontsecondary">
                 My design work led to a strategic shift in how Dune Security viewed and communicated user risk. The new risk score visualization fundamentally changed how the GTM team positioned the product, making user risk transparent and actionable. This clarity enabled sales to articulate value more effectively, directly influencing both sales messaging and future roadmap priorities.
               </p>
-              <blockquote className="border-l-4 border-indigo-400 pl-6 italic text-gray-600 bg-indigo-50/30 py-3 rounded-md mb-2">
+              {/* <blockquote className="border-l-4 border-indigo-400 pl-6 italic text-gray-600 bg-indigo-50/30 py-3 rounded-md mb-2">
                 “The new dashboard made it so much easier to show prospects exactly how Dune reduces risk—our sales conversations are now much more compelling.” – GTM Lead
-              </blockquote>
+              </blockquote> */}
+
+
             </span>
           </PageSection.ConstrainedWidth>
           <PageSection.FullWidth>
             <div className="w-full">
-              <FullImage src={OrgDashboard} alt="Roadmap snapshot or prioritization matrix (placeholder)" />
+              <BeforeAfterSlider
+              beforeImage={OldDashboard}
+              afterImage={OrgDashboard}
+              />
+              {/* <FullMedia src={DuneWheel} containerPadding="p-20" bg={false} alt="Roadmap snapshot or prioritization matrix (placeholder)" /> */}
             </div>
           </PageSection.FullWidth>
+          
           <Divider />
           <PageSection.ConstrainedWidth>
             <span className="w-full flex flex-col">
@@ -256,7 +264,7 @@ const DuneSecurity: React.FC = () => (
           </PageSection.ConstrainedWidth>
           <PageSection.FullWidth>
             <div className="w-full">
-              <FullImage src={OrgDashboard} alt="Roadmap snapshot or prioritization matrix (placeholder)" />
+              <FullMedia src={Customers} bg={false} containerPadding="p-24" alt="Roadmap snapshot or prioritization matrix (placeholder)" />
             </div>
           </PageSection.FullWidth>
           <Divider />
