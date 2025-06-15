@@ -15,7 +15,7 @@ const FullImage: React.FC<FullImageProps> = ({
   alt,
   bg = true, // Default value set to true
 }) => (
-  <div className="w-full px-12 flex-shrink-0">
+  <div className="w-full px-12 ">
     <div
       className={`md:relative w-full  overflow-hidden flex justify-center items-center rounded-lg${
         bg ? " bg-green-100 p-20" : ""

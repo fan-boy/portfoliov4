@@ -6,13 +6,16 @@ import DefaultPage from "../components/Pages/DefaultPage";
 import OrgDashboard from "../../../public/assets/Dune/dashboard.webp";
 import architecture from "../../../public/assets/Dune/architecture.webp";
 import battlecard from "../../../public/assets/Dune/battlecard.webp";
+import DesignSystem from "../../../public/assets/Dune/DesignSystem.webp";
+
 
 import { ArrowUp, ArrowDown, ArrowsOutLineVertical, Timer } from "phosphor-react";
 
 
 import PageSection from "../components/Pages/PageSection";
-import FullImage from "../components/Pages/FullImage";
+import FullImage from "../components/Miscelaneous/FullImage";
 import Divider from "../components/Miscelaneous/Divider";
+import FullMedia from "../components/Miscelaneous/FullMedia";
 
 
 
@@ -176,11 +179,26 @@ const DuneSecurity: React.FC = () => (
                 <li>Designed a unified risk score and visualization for instant identification of riskiest users/departments, with drill-downs for root cause analysis.</li>
                 <li>Built adaptive workflows to auto-assign targeted training, reducing manual intervention.</li>
               </ul>
+            </span>
+            </PageSection.ConstrainedWidth>
+
+            <PageSection.FullWidth>
+              <FullMedia src={"/assets/Dune/OrgToUserDrillDown.mp4"} bg={false} alt="Organization to Department to User Risk drilldown "/>
+            </PageSection.FullWidth>
+            <PageSection.ConstrainedWidth>
+            <span>
               <h3 className="text-fontprimary mt-4 mb-2">Building for Scale & Usability: The Stillsuit Design System</h3>
               <ul className="list-disc pl-6 space-y-2 text-fontsecondary mb-4">
                 <li>Developed the “Stillsuit” design system to standardize UI components and documentation, reducing onboarding time for new engineers by 50%.</li>
                 <li>Supported both CISO dashboards (org-wide risk, benchmarking) and employee views (personal risk, training progress), with accessibility for an older workforce.</li>
               </ul>
+              </span>
+              </PageSection.ConstrainedWidth>
+            <PageSection.FullWidth>
+              <FullMedia src={DesignSystem} containerPadding=" rounded-lg" padding="shadow-lg p-20" bg={false} alt="Organization to Department to User Risk drilldown "/>
+            </PageSection.FullWidth>
+            <PageSection.ConstrainedWidth>
+              <span>
               <h3 className="text-fontprimary mt-4 mb-2">Iteration & Feedback Loops</h3>
               <ul className="list-disc pl-6 space-y-2 text-fontsecondary">
                 <li>Instituted a two-week design-to-production cycle for rapid iteration.</li>
@@ -188,11 +206,9 @@ const DuneSecurity: React.FC = () => (
               </ul>
             </span>
           </PageSection.ConstrainedWidth>
-          <PageSection.FullWidth>
-            <div className="w-full">
-              <FullImage src={OrgDashboard} alt="Roadmap snapshot or prioritization matrix (placeholder)" />
-            </div>
-          </PageSection.FullWidth>
+          {/* <PageSection.FullWidth>
+              <FullMedia src={DesignSystem} containerPadding=" rounded-lg" padding="shadow-lg p-20" bg={false} alt="Organization to Department to User Risk drilldown "/>
+            </PageSection.FullWidth> */}
           <Divider />
           <PageSection.ConstrainedWidth>
             <span className="w-full flex flex-col">

@@ -9,7 +9,7 @@ import battlecard from "../../../public/assets/Dune/battlecard.webp";
 
 
 import PageSection from "../components/Pages/PageSection";
-import FullImage from "../components/Pages/FullImage";
+import FullImage from "../components/Miscelaneous/FullImage";
 import Divider from "../components/Miscelaneous/Divider";
 
 
