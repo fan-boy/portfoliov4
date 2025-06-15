@@ -53,12 +53,7 @@ body, * {
   --fw-light: 300;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+
 
 body {
   @apply font-sans text-[var(--text-body)] leading-[var(--lh-normal)] font-normal;
