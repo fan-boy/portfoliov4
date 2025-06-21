@@ -3,7 +3,8 @@ import '@/app/globals.css'
 import { Navbar } from './components/Navbar/Navbar';
 import CustomCursor from './components/customcursor';
 
-
+import { Analytics } from "@vercel/analytics/next"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 export default function RootLayout({
   children,
@@ -14,6 +15,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="relative min-h-screen justify-center flex-center">
+      <Analytics/>
+      <SpeedInsights/>
         <CustomCursor/>
        <Navbar />
         {children}
