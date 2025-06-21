@@ -1,9 +1,9 @@
 "use client"
-import Image from "next/image";
+//import Image from "next/image";
 import Link from "next/link";
 import TransitionWrapper from "./components/TransitionWrapper";
-import DuneOrgDashboard from "../../public/assets/Dune/dashboard.webp";
-import UniversityParkUserProfile from "../../public/assets/UniversityPark/userprofile.webp";
+//import DuneOrgDashboard from "../../public/assets/Dune/dashboard.webp";
+//import UniversityParkUserProfile from "../../public/assets/UniversityPark/userprofile.webp";
 import { motion } from "framer-motion";
 
 // import Cat1 from "../../public/assets/UniversityPark/hero.webp";
