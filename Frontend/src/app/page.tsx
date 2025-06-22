@@ -4,7 +4,7 @@ import Link from "next/link";
 import TransitionWrapper from "./components/TransitionWrapper";
 //import DuneOrgDashboard from "../../public/assets/Dune/dashboard.webp";
 //import UniversityParkUserProfile from "../../public/assets/UniversityPark/userprofile.webp";
-import { motion } from "framer-motion";
+//import { motion } from "framer-motion";
 
 // import Cat1 from "../../public/assets/UniversityPark/hero.webp";
 // import Cat2 from "../../public/assets/ChainReactive/hero.webp";
