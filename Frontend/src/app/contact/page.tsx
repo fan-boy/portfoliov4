@@ -1,6 +1,6 @@
 // app/contact/page.jsx
 "use client";
-import { Mail, Linkedin, FileText } from "lucide-react";
+import { Mail, Linkedin } from "lucide-react";
 import { motion } from "framer-motion";
 
 const links = [
