@@ -4,11 +4,11 @@ import { Mail, Linkedin, FileText } from "lucide-react";
 import { motion } from "framer-motion";
 
 const links = [
-  {
-    href: "https://read.cv/aadityashete",
-    label: "read.cv",
-    icon: FileText,
-  },
+//   {
+//     href: "https://read.cv/aadityashete",
+//     label: "read.cv",
+//     icon: FileText,
+//   },
   {
     href: "https://www.linkedin.com/in/aadityashete",
     label: "LinkedIn",
