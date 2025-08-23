@@ -2,7 +2,7 @@
 // pages/index.js
 import Head from 'next/head'
 import Image from 'next/image'
-import { useState } from 'react'
+//import { useState } from 'react'
 import Poorns from "../../../public/assets/Poorns/poorna.png";
 import Swan from "../../../public/assets/Poorns/swan.png";
 import Me from "../../../public/assets/Poorns/me.png";
