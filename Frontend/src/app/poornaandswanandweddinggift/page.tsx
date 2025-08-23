@@ -39,7 +39,7 @@ export default function WeddingGift() {
           <div className="max-w-2xl mx-auto text-center">
             {/* Title */}
             <h1 className="text-5xl sm:text-6xl font-extralight text-purple-800 mb-4 tracking-tight">
-              You're 6 months Married! 🎉
+              You&apos;re 6 months Married! 🎉
             </h1>
             <h2 className="text-3xl sm:text-4xl font-thin text-pink-600 mb-20">
               Poorna & Swanand ✨
@@ -85,8 +85,8 @@ export default function WeddingGift() {
                 OMG, you two are finally tying the knot! 🥳
               </p>
               <p className="text-lg sm:text-xl text-blue-700 mb-12 font-extralight leading-relaxed">
-                Get ready for the adventure of a lifetime! I'm talking cozy Airbnbs, 
-                spontaneous road trips, and making memories that'll make everyone else jealous. 
+                Get ready for the adventure of a lifetime! I&apos;m talking cozy Airbnbs, 
+                spontaneous road trips, and making memories that&apos;ll make everyone else jealous. 
                 This little gift should get your wanderlust started! 🗺️✈️
               </p>
 
@@ -102,7 +102,7 @@ export default function WeddingGift() {
                   />
                 </div>
               </div>
-              <p className="text-base text-pink-600 font-light">Can't wait to see where you go! 🏖️🏔️🏙️</p>
+              <p className="text-base text-pink-600 font-light">Can&apos;t wait to see where you go! 🏖️🏔️🏙️</p>
             </div>
 
             {/* Gift Card Button */}
@@ -116,7 +116,7 @@ export default function WeddingGift() {
                   focus:outline-none focus:ring-4 focus:ring-pink-100
                 "
               >
-                Let's Gooo! 🚀 Get Your Gift Card
+                Let&apos;s Gooo! 🚀 Get Your Gift Card
               </button>
             </div>
 
