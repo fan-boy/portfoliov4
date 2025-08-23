@@ -1,6 +1,6 @@
 // src/app/layout.tsx
 import '@/app/globals.css'
-import { Navbar } from './components/Navbar/Navbar';
+//import { Navbar } from './components/Navbar/Navbar';
 import CustomCursor from './components/customcursor';
 
 import { Analytics } from "@vercel/analytics/next"
