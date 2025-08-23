@@ -28,7 +28,7 @@ export default function RootLayout({
       <Analytics/>
       <SpeedInsights/>
         <CustomCursor/>
-       <Navbar />
+       {/* <Navbar /> */}
         {children}
       </body>
     </html>

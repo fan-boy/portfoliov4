@@ -91,3 +91,7 @@ body {
 .caption {
   @apply font-sans text-[var(--text-caption)] leading-[var(--lh-normal)] font-normal;
 }
+
+.bg-custom-radial {
+  background: radial-gradient(circle at 60% 40%, #f8c457 0%, #e79b07 40%, #b29254 75%, #3d2d1c 100%);
+}
