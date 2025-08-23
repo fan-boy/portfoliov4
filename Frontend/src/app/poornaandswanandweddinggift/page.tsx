@@ -9,8 +9,8 @@ import Me from "../../../public/assets/Poorns/me.png";
 
 export default function WeddingGift() {
   const handleGiftCardClick = () => {
-    // Replace this URL with the actual Airbnb gift card link
-    window.open('https://www.airbnb.com/gift', '_blank')
+    const giftCardUrl = process.env.NEXT_PUBLIC_GIFT_CARD_URL || 'https://www.airbnb.com/gift'
+    window.open(giftCardUrl, '_blank')
   }
 
   return (
