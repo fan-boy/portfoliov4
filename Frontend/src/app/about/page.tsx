@@ -35,7 +35,7 @@ const experience = [
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen bg-background text-gray-900 px-6 py-16 flex flex-col items-center">
+    <main className="min-h-screen text-gray-900 px-6 py-16 flex flex-col items-center">
       <section className="max-w-3xl w-full flex flex-col gap-10 items-start">
         {/* Profile Image Section */}
         <div className="mb-6 w-full overflow-hidden">

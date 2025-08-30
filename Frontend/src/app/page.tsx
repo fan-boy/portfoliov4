@@ -87,7 +87,7 @@ import TransitionWrapper from "./components/TransitionWrapper";
 export default function Home() {
   return (
     <>
-      <div className="bg-background" style={{ position: "relative", zIndex: 1 }}>
+      <div >
         <TransitionWrapper>
           {/* Hero Section */}
           <section className="w-full mt-48 ">

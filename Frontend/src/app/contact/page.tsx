@@ -23,7 +23,7 @@ const links = [
 
 export default function Contact() {
   return (
-    <main className="min-h-screen flex flex-col justify-center items-center bg-background px-6">
+    <main className="min-h-screen flex flex-col justify-center items-center  px-6">
       <ul className="flex flex-col md:flex-row gap-6 w-full max-w-2xl justify-center items-center">
         {links.map(({ href, label, icon: Icon }) => (
           <motion.li

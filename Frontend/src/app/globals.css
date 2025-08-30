@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap');
 @import "tailwindcss";
 
-
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -12,16 +11,6 @@ body, * {
   cursor: none !important;
 }
 
-.section-divider {
-  border: none;
-  border-top: 2px solid var(--color-foreground);
-  opacity: 0.5;
-  margin: var(--space-xl) 0;
-  width: 100%;
-  max-width: 1200px;
-  background: none;
-}
-
 @theme inline {
   --color-background: var(--background);
   --color-fontprimary: var(--foreground);
@@ -29,21 +18,18 @@ body, * {
   --font-sans: 'Figtree', ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-geist-mono);
   
-  /* Add your custom height */
   --height-75vh: 75vh;
   --height-herocard: 50vh;
 
-  /* Font sizes for headings */
-  --text-h1: 2.5rem;   /* 40px */
-  --text-h2: 2rem;     /* 32px */
-  --text-h3: 1.5rem;   /* 24px */
-  --text-h4: 1.25rem;  /* 20px */
-  --text-h5: 1.125rem; /* 18px */
-  --text-h6: 1.125rem;     /* 16px */
-  --text-body: 1.125rem;   /* 16px */
-  --text-caption: 0.875rem; /* 14px */
+  --text-h1: 2.5rem;
+  --text-h2: 2rem;
+  --text-h3: 1.5rem;
+  --text-h4: 1.25rem;
+  --text-h5: 1.125rem;
+  --text-h6: 1.125rem;
+  --text-body: 1.125rem;
+  --text-caption: 0.875rem;
 
-  /* Optional: line heights and weights */
   --lh-tight: 1.2;
   --lh-normal: 1.5;
   --fw-extrabold: 900;
@@ -53,13 +39,18 @@ body, * {
   --fw-light: 300;
 }
 
-
-
+/* ChatGPT-style concentrated top gradient */
 body {
   @apply font-sans text-[var(--text-body)] leading-[var(--lh-normal)] font-normal;
-  background: var(--background);
+  background: radial-gradient(ellipse 100% 30% at 50% 0%, 
+    rgba(255, 107, 157, 0.5) 0%,
+    rgba(255, 168, 204, 0.4) 20%,
+    rgba(255, 204, 153, 0.3) 40%,
+    rgba(255, 235, 153, 0.2) 60%,
+    rgba(255, 255, 255, 0) 80%
+  ), #ffffff;
   color: var(--foreground);
-  
+  min-height: 100vh;
 }
 
 h1 {
@@ -69,27 +60,34 @@ h2 {
   @apply text-3xl leading-tight font-sans;
 }
 h3 {
-  @apply text-2xl  leading-tight font-sans;
+  @apply text-2xl leading-tight font-sans;
 }
 h4 {
-  @apply text-xl  leading-tight font-sans;
+  @apply text-xl leading-tight font-sans;
 }
 h5 {
-  @apply text-lg  leading-tight font-sans;
+  @apply text-lg leading-tight font-sans;
 }
 h6 {
-  @apply text-base  leading-tight font-sans;
+  @apply text-base leading-tight font-sans;
 }
-body {
-  @apply text-base font-light leading-normal font-sans;
-}
+
 .caption, caption {
   @apply text-sm font-normal leading-normal font-sans;
 }
 
-/* For captions (e.g., small text or .caption class) */
 .caption {
   @apply font-sans text-[var(--text-caption)] leading-[var(--lh-normal)] font-normal;
+}
+
+.section-divider {
+  border: none;
+  border-top: 2px solid var(--color-foreground);
+  opacity: 0.5;
+  margin: var(--space-xl) 0;
+  width: 100%;
+  max-width: 1200px;
+  background: none;
 }
 
 .bg-custom-radial {
