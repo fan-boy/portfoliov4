@@ -14,7 +14,7 @@ export function Navbar() {
   const pathname = usePathname();
 
   return (
-    <nav className="fixed w-full flex justify-center top-5 z-10">
+    <nav className="fixed w-full flex justify-center top-5 z-50">
       <KeyboardNav />
       <div className="flex gap-2 rounded-full bg-background/80 backdrop-blur px-2 py-1 shadow-md border border-gray-200 items-center">
         {navItems.map(({ href, label, letter }) => {

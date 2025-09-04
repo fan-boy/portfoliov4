@@ -2,8 +2,10 @@
 
 "use client";
 import Image from "next/image";
-import React from "react";
+import React, { useEffect } from "react";
 import Profile from "../../../public/assets/About/profile.webp";
+import AnimatedBlobs from "../components/AnimatedBlobs";
+import { useChat } from '../context/ChatContext';
 
 const experience = [
   {
@@ -34,8 +36,18 @@ const experience = [
 ];
 
 export default function AboutPage() {
+  const { chatOpen } = useChat()
+    useEffect(() => {
+      if (chatOpen) document.body.style.overflow = 'hidden';
+      else document.body.style.overflow = '';
+      return () => { document.body.style.overflow = '' };
+    }, [chatOpen]);
   return (
+
     <main className="min-h-screen text-gray-900 px-6 py-16 flex flex-col items-center">
+       {!chatOpen && (
+        <AnimatedBlobs expanded={false} loading={false} />
+      )}
       <section className="max-w-3xl w-full flex flex-col gap-10 items-start">
         {/* Profile Image Section */}
         <div className="mb-6 w-full overflow-hidden">

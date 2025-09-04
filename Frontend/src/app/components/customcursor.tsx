@@ -1,11 +1,9 @@
-// components/CustomCursor.tsx
 "use client";
 import React, { useEffect, useState } from "react";
 import { motion, useMotionValue } from "framer-motion";
 import { usePathname } from "next/navigation";
 
-const CLICKABLE_SELECTORS =
-  "a, button, [role='button'], input, select";
+const CLICKABLE_SELECTORS = "a, button, [role='button'], input, select";
 
 const CustomCursor: React.FC = () => {
   const [hovered, setHovered] = useState(false);
@@ -17,7 +15,7 @@ const CustomCursor: React.FC = () => {
   const pathname = usePathname();
 
   useEffect(() => {
-    setHovered(false); // Reset hover state on route change
+    setHovered(false);
   }, [pathname]);
 
   useEffect(() => {

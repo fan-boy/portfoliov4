@@ -1,42 +1,35 @@
-// src/app/layout.tsx
+'use client';
+
 import '@/app/globals.css'
+import { ChatProvider } from './context/ChatContext';
 import { Navbar } from './components/Navbar/Navbar';
 import CustomCursor from './components/customcursor';
 import { Analytics } from "@vercel/analytics/next"
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import Button from './components/Button/Button';
+import ChatBox from './components/chatbox';
+import { useEffect } from 'react';
 
-export const metadata = {
-  title: "Aaditya Shete",
-  description: "Product Designer | Developer",
-  icons: {
-    icon: "/favicon.ico",
-  },
-};
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  // Lock scroll in layout-level, as context cannot use effects for this purpose.
+  // We'll use a ChatOpen wrapper in ChatBox below.
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
   return (
     <html lang="en">
       <body className="relative min-h-screen">
-        {/* Full-screen gradient background */}
-        <div className="gradient-background" />
-        
-        {/* All content goes here - positioned above the gradient */}
-        <div className="relative z-10 min-h-screen">
-          <Analytics/>
-          <SpeedInsights/>
-          <CustomCursor/>
+        <ChatProvider>
+          <CustomCursor />
+          <Analytics />
+          <SpeedInsights />
           <Navbar />
-
-          {/* Main content area */}
-          <div className="w-full" style={{paddingTop: "140px"}}>
+          <div className="w-full" style={{ paddingTop: "140px" }}>
             {children}
-            hi
           </div>
-        </div>
+          <ChatBox />
+          <div className="fixed bottom-0 right-0 z-50 m-6">
+            <Button />
+          </div>
+        </ChatProvider>
       </body>
     </html>
   );

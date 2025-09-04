@@ -2,6 +2,9 @@
 //import Image from "next/image";
 import Link from "next/link";
 import TransitionWrapper from "./components/TransitionWrapper";
+import AnimatedBlobs from "./components/AnimatedBlobs";
+import { useChat } from './context/ChatContext';
+import { useEffect } from "react";
 //import DuneOrgDashboard from "../../public/assets/Dune/dashboard.webp";
 //import UniversityParkUserProfile from "../../public/assets/UniversityPark/userprofile.webp";
 //import { motion } from "framer-motion";
@@ -85,11 +88,20 @@ import TransitionWrapper from "./components/TransitionWrapper";
 // </div>;
 
 export default function Home() {
+  const { chatOpen } = useChat()
+  useEffect(() => {
+    if (chatOpen) document.body.style.overflow = 'hidden';
+    else document.body.style.overflow = '';
+    return () => { document.body.style.overflow = '' };
+  }, [chatOpen]);
   return (
     <>
       <div >
         <TransitionWrapper>
           {/* Hero Section */}
+          {!chatOpen && (
+        <AnimatedBlobs expanded={false} loading={false} />
+      )}
           <section className="w-full mt-48 ">
             <div className="max-w-3xl mx-auto px-6 flex flex-col items-start gap-6 font-sans">
               <span className=" flex flex-col gap-6">

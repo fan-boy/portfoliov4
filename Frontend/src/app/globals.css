@@ -42,13 +42,7 @@ body, * {
 /* ChatGPT-style concentrated top gradient */
 body {
   @apply font-sans text-[var(--text-body)] leading-[var(--lh-normal)] font-normal;
-  background: radial-gradient(ellipse 100% 30% at 50% 0%, 
-    rgba(255, 107, 157, 0.5) 0%,
-    rgba(255, 168, 204, 0.4) 20%,
-    rgba(255, 204, 153, 0.3) 40%,
-    rgba(255, 235, 153, 0.2) 60%,
-    rgba(255, 255, 255, 0) 80%
-  ), #ffffff;
+  
   color: var(--foreground);
   min-height: 100vh;
 }
@@ -93,3 +87,117 @@ h6 {
 .bg-custom-radial {
   background: radial-gradient(circle at 60% 40%, #f8c457 0%, #e79b07 40%, #b29254 75%, #3d2d1c 100%);
 }
+
+.blob-gradient-bg {
+  position: absolute;
+  left: 0; top: 0;
+  width: 100vw; height: 38vh; /* top, not too tall */
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+.centered-blob {
+  position: absolute;
+  filter: blur(44px);
+  opacity: 0.5;
+  z-index: 1;
+  transition: opacity 0.3s;
+  border-radius: 42% 58% 55% 45%/55% 45% 55% 45%;
+}
+
+.gradient-background {
+  position: absolute;
+  top: 0; left: 0; width: 100vw; height: 60vh;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+
+/* Soft white fade at bottom */
+.blob-fade {
+  position: absolute;
+  left: 0; bottom: 0;
+  width: 100%; height: 48%;
+  pointer-events: none;
+  z-index: 2;
+  background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, #fff 100%);
+}
+
+.blob-1-motion {
+  animation-name: blobAnim1 !important;
+}
+@keyframes blobAnim1 {
+  0%, 100% {
+    border-radius: 44% 60% 64% 48%/63% 49% 70% 43%;
+    transform: scale(1.04) rotate(0deg);
+  }
+  35% {
+    border-radius: 60% 46% 66% 44%/66% 46% 63% 56%;
+    transform: scale(1.11) rotate(4deg) translateY(-8px) translateX(6px);
+  }
+  75% {
+    border-radius: 58% 51% 73% 42%/69% 60% 65% 52%;
+    transform: scale(1.01) rotate(-4deg) translateY(10px) translateX(-8px);
+  }
+}
+.blob-2-motion {
+  animation-name: blobAnim2 !important;
+}
+@keyframes blobAnim2 {
+  0%, 100% {
+    border-radius: 47% 63% 59% 54% / 64% 54% 51% 66%;
+    transform: scale(1) rotate(0deg);
+  }
+  45% {
+    border-radius: 63% 47% 62% 54%/73% 50% 57% 66%;
+    transform: scale(1.12) rotate(-5deg) translateY(-10px) translateX(8px);
+  }
+  80% {
+    border-radius: 58% 41% 65% 54%/64% 53% 61% 63%;
+    transform: scale(1.08) rotate(3deg) translateY(10px) translateX(-9px);
+  }
+}
+.blob-3-motion {
+  animation-name: blobAnim3 !important;
+}
+@keyframes blobAnim3 {
+  0%, 100% {
+    border-radius: 45% 65% 60% 55%/75% 51% 58% 70%;
+    transform: scale(1) rotate(0deg);
+  }
+  40% {
+    border-radius: 57% 61% 62% 59%/69% 68% 62% 67%;
+    transform: scale(1.09) rotate(7deg) translateY(9px) translateX(-12px);
+  }
+  95% {
+    border-radius: 64% 53% 66% 67% / 69% 63% 65% 78%;
+    transform: scale(0.98) rotate(-7deg) translateY(-11px) translateX(9px);
+  }
+}
+@keyframes blobFloat1 {
+  0% { left: 10vw; top: -8vw; transform: scale(1) rotate(0deg);}
+  25% { left: 12vw; top: 47vh; transform: scale(1.12) rotate(4deg);}
+  50% { left: 18vw; top: 12vh; transform: scale(0.95) rotate(-3deg);}
+  75% { left: 9vw; top: 74vh; transform: scale(1.09) rotate(7deg);}
+  100% { left: 4vw; top: 8vh; transform: scale(1) rotate(0deg);}
+}
+@keyframes blobFloat2 {
+  0% { left: 33vw; top: -12vw; transform: scale(1) rotate(0deg);}
+  30% { left: 50vw; top: 18vh; transform: scale(1.14) rotate(-6deg);}
+  60% { left: 77vw; top: 67vh; transform: scale(0.96) rotate(3deg);}
+  100% { left: 64vw; top: 43vh; transform: scale(1) rotate(0deg);}
+}
+@keyframes blobFloat3 {
+  0% { left: 58vw; top: -6vw; transform: scale(1) rotate(0deg);}
+  20% { left: 70vw; top: 30vh; transform: scale(1.13) rotate(-6deg);}
+  72% { left: 14vw; top: 71vh; transform: scale(0.97) rotate(5deg);}
+  100% { left: 44vw; top: 80vh; transform: scale(1) rotate(0deg);}
+}
+
+.blob-float1 { animation: blobFloat1 9s cubic-bezier(0.57,0,0.47,1) infinite both; }
+.blob-float2 { animation: blobFloat2 8.6s cubic-bezier(0.62,0.04,0.36,0.95) infinite both; }
+.blob-float3 { animation: blobFloat3 10s cubic-bezier(0.57,0,0.47,1) infinite both; }
