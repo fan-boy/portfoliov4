@@ -8,7 +8,7 @@ import { Analytics } from "@vercel/analytics/next"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import Button from './components/Button/Button';
 import ChatBox from './components/chatbox';
-import { useEffect } from 'react';
+
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   // Lock scroll in layout-level, as context cannot use effects for this purpose.

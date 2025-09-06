@@ -77,6 +77,7 @@ export default function ChatBox() {
       const data = await res.json();
       setChat(current => [...current, { role: 'ai', text: data.response || 'No response received.' }]);
     } catch (err) {
+      console.error(err);
       setChat(current => [...current, { role: 'ai', text: 'Something went wrong. Please try again.' }]);
     } finally {
       setLoading(false);
