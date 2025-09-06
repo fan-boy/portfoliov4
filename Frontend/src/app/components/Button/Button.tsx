@@ -1,20 +1,64 @@
 'use client';
 import { useChat } from '../../context/ChatContext';
 import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
+import clsx from 'clsx';
 
 export default function Button() {
   const { chatOpen, setChatOpen } = useChat();
+  const [isMac, setIsMac] = useState(false);
+
+  // Detect platform for keyboard shortcut
+  useEffect(() => {
+    setIsMac(navigator.platform.toUpperCase().indexOf('MAC') >= 0);
+  }, []);
+
+  // Handle keyboard shortcut
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+        e.preventDefault();
+        setChatOpen(true);
+      }
+    };
+    window.addEventListener('keydown', handler);
+    return () => window.removeEventListener('keydown', handler);
+  }, [setChatOpen]);
+
+  const shortcutKey = isMac ? '⌘K' : '⌘K';
 
   return (
     <motion.button
       type="button"
       onClick={() => setChatOpen(true)}
       aria-busy={chatOpen}
-      className={`bg-black text-white px-5 py-2.5 rounded-lg font-medium shadow-sm focus:outline-none transition select-none hover:bg-gray-900 ring-2 ring-offset-2 ring-black z-50`}
-      style={{ opacity: chatOpen ? 0.95 : 1 }}
-      whileTap={{ scale: 0.97 }}
+      className={clsx(
+        'flex items-center gap-3 rounded-full px-4 py-2 font-medium text-sm transition-all outline-none cursor-pointer select-none',
+        // Very subtle, matching your page's lightness
+        'bg-white/80 backdrop-blur-sm border border-gray-200/60 shadow-sm',
+        'text-gray-700',
+        // Gentle hover - matches your nav
+        'hover:bg-white/90 hover:text-gray-900 hover:border-gray-300/80 hover:shadow-md',
+        'focus-visible:ring-2 focus-visible:ring-gray-200 focus-visible:outline-none',
+        chatOpen && 'opacity-90'
+      )}
+      whileTap={{ scale: 0.98 }}
+      whileHover={{ scale: 1.01 }}
+      transition={{ type: "spring", stiffness: 400, damping: 20 }}
     >
-      Chat AI
+      {/* Keyboard shortcut - ultra minimal like your nav chips */}
+      <span
+        className={clsx(
+          'flex items-center justify-center px-2 py-1 rounded-md text-xs font-medium',
+          'bg-gray-100/80 border border-gray-200/60 text-gray-500',
+          'group-hover:bg-gray-200/80 group-hover:text-gray-600'
+        )}
+      >
+        {shortcutKey}
+      </span>
+      Chat
+      
+      
     </motion.button>
   );
 }

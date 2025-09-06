@@ -69,7 +69,7 @@ export default function ChatBox() {
     setPromptsVisible(false);
     setLoading(true);
     try {
-      const res = await fetch('https://portfoliov4-production.up.railway.app/askaboutadi', {
+      const res = await fetch('/api/askaboutadi', {  
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ question: trimmed }),
