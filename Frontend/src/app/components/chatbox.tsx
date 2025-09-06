@@ -26,6 +26,7 @@ export default function ChatBox() {
 
   const chatEndRef = useRef<HTMLDivElement | null>(null);
   const inputRef = useRef<HTMLTextAreaElement | null>(null);
+  const chatContainerRef = useRef<HTMLDivElement | null>(null);
   const pathname = usePathname();
 
   // Close on Esc key
@@ -40,8 +41,10 @@ export default function ChatBox() {
 
   // Scroll to bottom on new chat
   useEffect(() => {
-    chatEndRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end' });
-  }, [chat, chatOpen, loading]);
+    if (chatEndRef.current && chatContainerRef.current) {
+      chatEndRef.current.scrollIntoView({ behavior: 'smooth', block: 'end' });
+    }
+  }, [chat, loading]);
 
   // Hide prompts if user types or chat is non-empty
   useEffect(() => {
@@ -69,7 +72,7 @@ export default function ChatBox() {
     setPromptsVisible(false);
     setLoading(true);
     try {
-      const res = await fetch('/api/askaboutadi', {  
+      const res = await fetch('/api/askaboutadi', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ question: trimmed }),
@@ -77,7 +80,6 @@ export default function ChatBox() {
       const data = await res.json();
       setChat(current => [...current, { role: 'ai', text: data.response || 'No response received.' }]);
     } catch (err) {
-      console.error(err);
       setChat(current => [...current, { role: 'ai', text: 'Something went wrong. Please try again.' }]);
     } finally {
       setLoading(false);
@@ -118,54 +120,67 @@ export default function ChatBox() {
             </button>
           </motion.div>
 
-          {/* Chat history area with scroll */}
+          {/* Chat history area with PROPER SCROLLING */}
           <motion.div
-            className="fixed left-0 right-0 bottom-0 top-0 z-[60] flex flex-col items-center w-full pointer-events-none select-text"
+            className="fixed left-0 right-0 bottom-0 top-0 z-[60] flex flex-col items-center w-full pointer-events-none"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.22 }}
-            style={{ pointerEvents: 'none' }}
           >
-            <div className="flex-1 w-full max-w-xl mx-auto flex flex-col justify-end pt-[120px] pb-[120px] px-2 overflow-y-auto pointer-events-auto gap-4"
-                 style={{ maxHeight: '100vh', minHeight: 0 }}>
-              {chat.map((turn, i) => (
-                <div
-                  key={i}
-                  className={clsx(
-                    'flex w-full',
-                    turn.role === 'ai'
-                      ? 'justify-start'
-                      : 'justify-end'
-                  )}
-                >
-                  <div className={
-                    clsx(
-                      "relative px-4 py-2 rounded-[18px] max-w-xs text-base whitespace-pre-line shadow-sm",
-                      turn.role === 'user'
-                        ? "bg-indigo-50/70 text-indigo-800 rounded-br-sm mr-2"
-                        : "bg-white text-gray-800 rounded-bl-sm border border-gray-200 ml-2"
-                    )
-                  }>
-                    {turn.text}
+            <div 
+              ref={chatContainerRef}
+              className="flex-1 w-full max-w-xl mx-auto flex flex-col pt-[120px] pb-[180px] px-4 pointer-events-auto"
+              style={{ 
+                height: '100vh',
+                overflowY: 'auto',
+                scrollBehavior: 'smooth'
+              }}
+            >
+              <div className="flex-1"></div>
+              <div className="flex flex-col gap-4">
+                {chat.map((turn, i) => (
+                  <div
+                    key={i}
+                    className={clsx(
+                      'flex w-full',
+                      turn.role === 'ai'
+                        ? 'justify-start'
+                        : 'justify-end'
+                    )}
+                  >
+                    <div className={
+                      clsx(
+                        "relative px-4 py-3 rounded-[20px] max-w-[85%] text-base whitespace-pre-wrap shadow-sm leading-relaxed",
+                        turn.role === 'user'
+                          ? "bg-indigo-50/70 text-indigo-800 rounded-br-md mr-2"
+                          : "bg-white text-gray-800 rounded-bl-md border border-gray-200 ml-2"
+                      )
+                    }>
+                      {turn.text}
+                    </div>
                   </div>
-                </div>
-              ))}
-              {loading && (
-                <div className="flex justify-start">
-                  <div className="relative px-4 py-2 rounded-[16px] max-w-xs bg-white text-gray-400 border border-gray-200 shadow-md ml-2">
-                    <span className="loading-dots font-mono">...</span>
+                ))}
+                {loading && (
+                  <div className="flex justify-start">
+                    <div className="relative px-4 py-3 rounded-[20px] max-w-[85%] bg-white text-gray-400 border border-gray-200 shadow-sm ml-2">
+                      <div className="flex items-center gap-1">
+                        <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
+                        <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{animationDelay: '0.1s'}}></div>
+                        <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{animationDelay: '0.2s'}}></div>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              )}
-              <div ref={chatEndRef} />
+                )}
+                <div ref={chatEndRef} />
+              </div>
             </div>
           </motion.div>
 
           {/* Prompt chips & helper */}
           {promptsVisible && (
-            <div className="fixed left-0 right-0 bottom-[110px] z-[85] w-full flex flex-col items-center pointer-events-auto">
-              <div className="text-gray-400 text-base font-medium mb-2 select-none">
+            <div className="fixed left-0 right-0 bottom-[120px] z-[85] w-full flex flex-col items-center pointer-events-auto">
+              <div className="text-gray-400 text-base font-medium mb-4 select-none">
                 Start a conversation. Ask anything about Adi!
               </div>
               {promptChips.length > 0 && (
@@ -194,8 +209,8 @@ export default function ChatBox() {
               "fixed left-0 right-0 bottom-0 pb-6 z-[80] w-full pointer-events-auto flex justify-center"
             )}
             style={{
-              background: "linear-gradient(to top, rgba(255,255,255,0.72) 80%,rgba(255,255,255,0))",
-              minHeight: '92px'
+              background: "linear-gradient(to top, rgba(255,255,255,0.9) 70%, rgba(255,255,255,0.3) 90%, rgba(255,255,255,0))",
+              minHeight: '100px'
             }}
             onSubmit={e => {
               e.preventDefault();
@@ -204,7 +219,7 @@ export default function ChatBox() {
           >
             <div
               className={clsx(
-                "rounded-full border border-gray-200 shadow-md bg-white/80 flex gap-2 py-2.5 px-3 items-center transition-all focus-within:shadow-lg max-w-xl w-full"
+                "rounded-full border border-gray-200 shadow-lg bg-white/95 flex gap-2 py-2.5 px-3 items-center transition-all focus-within:shadow-xl max-w-xl w-full backdrop-blur-sm"
               )}
             >
               <textarea
@@ -227,8 +242,14 @@ export default function ChatBox() {
                 autoFocus
               />
               {/* Enter Key Icon (visually aligned) */}
-             
-
+              <span
+                className="h-9 w-9 flex items-center justify-center border border-indigo-200 rounded-[6px] bg-white text-indigo-600 text-lg font-semibold select-none mr-1"
+                aria-label="Enter key"
+                tabIndex={-1}
+                style={{ pointerEvents: 'none' }}
+              >
+                {'\u23CE'}
+              </span>
               <button
                 type="submit"
                 disabled={loading || !question.trim()}
@@ -237,34 +258,11 @@ export default function ChatBox() {
                   loading
                     ? "bg-indigo-100 border-indigo-200 text-indigo-300 cursor-wait"
                     : "bg-white border-indigo-300 text-indigo-600 hover:bg-indigo-50 hover:text-indigo-800 focus-visible:bg-indigo-100",
-                  "flex items-center gap-2 justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-300"
+                  "flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-300"
                 )}
                 tabIndex={0}
               >
-                
-                <span
-                        tabIndex={0}
-                        className={clsx(
-                          'group z-100 flex items-center gap-1 rounded-full px-2 py-1 transition-colors outline-none cursor-pointer select-none text-xs',
-                          'bg-transparent text-gray-800',
-                          'hover:bg-indigo-50 hover:text-indigo-700 focus-visible:bg-indigo-50 focus-visible:text-indigo-700',
-                          !loading && 'text-indigo-700 font-regular z-50'
-                        )}
-                      >
-                        <span
-                          className={clsx(
-                            'flex items-center justify-center w-5 h-5 rounded-sm text-[11px] font-medium transition-colors border z-50',
-                            !loading
-                              ? 'border-indigo-400 text-indigo-700'
-                              : 'border-gray-200 text-gray-400',
-                            'group-hover:border-indigo-400 group-hover:text-indigo-700 group-focus-visible:border-indigo-400 group-focus-visible:text-indigo-700',
-                            'bg-transparent'
-                          )}
-                        >
-                           {'\u23CE'}
-                        </span>
-                        Ask
-                      </span>
+                Ask
               </button>
             </div>
           </motion.form>
