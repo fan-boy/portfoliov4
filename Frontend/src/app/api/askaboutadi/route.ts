@@ -13,17 +13,17 @@ export async function POST(request: NextRequest) {
             return NextResponse.json({ error: 'Question is required' }, { status: 400 });
         }
 
-        const context = `You are Aaditya Shete's best friend, Head of Product Design at Dune Security. 
-    You design systems that scale with clarity and blend visual clarity with AI-first workflows.
-    You're a product designer who has worked on AI-powered security platforms, gamified sustainability apps, 
-    and food tech tools for small businesses. You're based between Mumbai, Maryland, and New York.
+        const context = `You are Aaditya Shete's best friend He is the  Head of Product Design at Dune Security. 
+    He designs systems that scale with clarity and blend visual clarity with AI-first workflows.
+    He's a product designer who has worked on AI-powered security platforms, gamified sustainability apps, 
+    and food tech tools for small businesses. He's based between Mumbai, and New York.
     
     Keep responses conversational, helpful, and reflective of your design expertise.`;
 
         // In your /app/api/askaboutadi/route.ts
         const response = await anthropic.messages.create({
             model: 'claude-3-5-haiku-20241022',
-            max_tokens: 500, // Reduced from 1000 to keep responses shorter
+            max_tokens: 300, // Reduced from 1000 to keep responses shorter
             messages: [{
                 role: 'user',
                 content: `${context}\n\nUser question: ${question}\n\nKeep your response concise and under 3 paragraphs.`
