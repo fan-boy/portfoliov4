@@ -2,7 +2,6 @@
 import React, { useEffect } from "react";
 import TransitionWrapper from "../components/TransitionWrapper";
 import DefaultPage from "../components/Pages/DefaultPage";
-import { ArrowUp, ArrowDown, ArrowsOutLineVertical, Timer } from "phosphor-react";
 import PageSection from "../components/Pages/PageSection";
 import Divider from "../components/Miscelaneous/Divider";
 import UnifiedMedia from "../components/Miscelaneous/UnifiedMedia";
@@ -11,11 +10,11 @@ import AnimatedBlobs from "../components/AnimatedBlobs";
 
 import ChainDashboard from "../../../public/assets/ChainReactive/hero.webp";
 import MenuExample from "../../../public/assets/ChainReactive/menu-example.webp";
-import AdminDashboard from "../../../public/assets/ChainReactive/admin-dashboard.webp";
-import PizzaBuilder from "../../../public/assets/ChainReactive/pizza-builder.webp";
-import OrderFlow from "../../../public/assets/ChainReactive/order-flow.webp";
-import Cafe from "../../../public/assets/ChainReactive/cafe-example.webp";
-import Thai from "../../../public/assets/ChainReactive/thai-example.webp";
+// import AdminDashboard from "../../../public/assets/ChainReactive/admin-dashboard.webp";
+// import PizzaBuilder from "../../../public/assets/ChainReactive/pizza-builder.webp";
+// import OrderFlow from "../../../public/assets/ChainReactive/order-flow.webp";
+// import Cafe from "../../../public/assets/ChainReactive/cafe-example.webp";
+// import Thai from "../../../public/assets/ChainReactive/thai-example.webp";
 
 const ChainReactive: React.FC = () => {
   const { chatOpen } = useChat();

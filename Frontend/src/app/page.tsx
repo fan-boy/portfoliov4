@@ -100,7 +100,7 @@ export default function Home() {
                         <motion.div
                           className={
                             "relative w-full flex justify-center items-center rounded-2xl border border-gray-100 shadow-md overflow-hidden " +
-                            "bg-[radial-gradient(circle_at_60%_40%,#F8F5FA_0%,#E6FBEF_35%,#CCFFD4_75%,#E6E6E6_100%)]"
+                            "bg-[#f6fafd]"
                           }
                           style={{
                             minHeight: "320px",

@@ -50,7 +50,7 @@ const UnifiedMedia: React.FC<UnifiedMediaProps> = ({
         ].join(" ")}
         style={{
           background: bg ? (gradient || defaultGradient) : undefined,
-          padding: bg ? "3.5rem" : undefined,
+          padding: bg ? padding : undefined,
         }}
       >
         {isVideo ? (
