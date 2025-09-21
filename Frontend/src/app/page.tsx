@@ -24,13 +24,13 @@ const projects = [
     image: UniversityParkUserProfile,
     imageAlt: "University Park platform preview",
   },
-  {
-    title: "ChainReactive",
-    subtitle: "Empowering small restaurants with seamless online ordering.",
-    href: "/chainreactive",
-    image: DuneOrgDashboard,
-    imageAlt: "ChainReactive ordering system preview",
-  },
+  // {
+  //   title: "ChainReactive",
+  //   subtitle: "Empowering small restaurants with seamless online ordering.",
+  //   href: "/chainreactive",
+  //   image: DuneOrgDashboard,
+  //   imageAlt: "ChainReactive ordering system preview",
+  // },
 ];
 
 export default function Home() {
