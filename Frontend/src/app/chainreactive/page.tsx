@@ -79,7 +79,7 @@ const ChainReactive: React.FC = () => {
               <span>
                 <h2 className="text-fontprimary mb-6">Background & Opportunity</h2>
                 <p className="mb-4 text-fontsecondary leading-relaxed">
-                  COVID forced small businesses—especially in smaller towns—to digitize quickly, but existing platforms either charged high fees, lacked POS integration, or were too complex for non-technical business owners. As our CEO's spouse operated one of the first client restaurants, we saw first-hand the need for rapid, seamless transitions from in-person to online ordering.
+                  COVID forced small businesses—especially in smaller towns—to digitize quickly, but existing platforms either charged high fees, lacked POS integration, or were too complex for non-technical business owners. As our CEO&apos;s spouse operated one of the first client restaurants, we saw first-hand the need for rapid, seamless transitions from in-person to online ordering.
                 </p>
                 <ul className="list-disc pl-6 space-y-2 text-fontsecondary mb-4">
                   <li>Manual website/menu updates were time-consuming and error-prone</li>
