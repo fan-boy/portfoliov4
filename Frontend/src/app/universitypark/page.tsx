@@ -1,169 +1,286 @@
-import React from "react";
-import Image from "next/image";
+'use client'
+import React, { useEffect } from "react";
 import TransitionWrapper from "../components/TransitionWrapper";
 import DefaultPage from "../components/Pages/DefaultPage";
+import PageSection from "../components/Pages/PageSection";
+import Divider from "../components/Miscelaneous/Divider";
+import UnifiedMedia from "../components/Miscelaneous/UnifiedMedia";
+import { useChat } from "../context/ChatContext";
+import AnimatedBlobs from "../components/AnimatedBlobs";
 
-// --- Types ---
-type SectionProps = {
-  children: React.ReactNode;
-  altBg?: boolean;
+// Reusing ChainReactive image assets as placeholders:
+import UparkDashboard from "../../../public/assets/UniversityPark/hero.webp";
+import Research from "../../../public/assets/UniversityPark/research.webp";
+//import cardsort from "../../../public/assets/UniversityPark/cardsort.webp";
+import midfi from "../../../public/assets/UniversityPark/mid-fi.webp";
+import gamification from "../../../public/assets/UniversityPark/gamification.webp";
+import admin from "../../../public/assets/UniversityPark/admin.webp";
+// import MenuExample from "../../../public/assets/ChainReactive/menu-example.webp";
+// import AdminDashboard from "../../../public/assets/ChainReactive/admin-dashboard.webp";
+// import PizzaBuilder from "../../../public/assets/ChainReactive/pizza-builder.webp";
+// import OrderFlow from "../../../public/assets/ChainReactive/order-flow.webp";
+// import Cafe from "../../../public/assets/ChainReactive/cafe-example.webp";
+// import Thai from "../../../public/assets/ChainReactive/thai-example.webp";
+
+const uparkGradient = "#f6fafd";
+
+const UniversityPark: React.FC = () => {
+  const { chatOpen } = useChat();
+  useEffect(() => {
+    if (chatOpen) document.body.style.overflow = 'hidden';
+    else document.body.style.overflow = '';
+    return () => { document.body.style.overflow = '' };
+  }, [chatOpen]);
+
+  return (
+    <TransitionWrapper>
+      {!chatOpen && (
+        <AnimatedBlobs expanded={false} loading={false} />
+      )}
+      <DefaultPage>
+        <PageSection>
+          <div className="w-full flex flex-col gap-16">
+            {/* Header */}
+            <PageSection.FullWidth>
+              <div className="w-10/12 mt-48 flex">
+                <span className="w-4/12">
+                  <h2 className="tracking-tight text-fontsecondary">University Park </h2>
+                </span>
+                <span className="w-8/12">
+                  <h2 className="tracking-tight text-fontprimary">
+                    Designing a Digital Hub to Drive Community-Wide Sustainable Action
+                  </h2>
+                </span>
+              </div>
+              <div className="w-10/12 flex flex mb-6">
+                <span className="w-4/12"></span>
+                <span className="w-6/12 flex flex-row gap-4 text-fontsecondary mb-8 mt-3">
+                  <span>2023-2024,</span>
+                  <span>Product Design, Research, Systems Design</span>
+                </span>
+              </div>
+              <UnifiedMedia
+                src={UparkDashboard}
+                alt="University Park Sustainability Platform hero"
+                bg
+                gradient={uparkGradient}
+                imgWidth={1200}
+                imgHeight={630}
+              />
+            </PageSection.FullWidth>
+            {/* Summary */}
+            <PageSection.ConstrainedWidth>
+              <span className="flex flex-col gap-16">
+                <span className="leading-relaxed mb-2 p-8 mt-12 flex flex-col gap-4 bg-gray-50 rounded-lg">
+                  <h3>Summary</h3>
+                  <h4 className="text-fontprimary">
+                    As lead product designer, I partnered with University Park’s Sustainability Committee to conceive, design, and deliver a digital platform that engages residents in sustainable practices and fosters a collaborative, action-driven community. The platform enables education, gamified learning, actionable challenges, and data-driven oversight, making sustainability a shared goal rather than an abstract concept.
+                  </h4>
+                </span>
+              </span>
+            </PageSection.ConstrainedWidth>
+            {/* Background & Opportunity */}
+            <PageSection.ConstrainedWidth>
+              <span>
+                <h2 className="text-fontprimary mb-6">Background & Opportunity</h2>
+                <p className="mb-4 text-fontsecondary leading-relaxed">
+                  University Park sought to move beyond awareness and enable every resident to take tangible steps toward sustainable living. Facing fragmented information, lackluster community engagement, and diverse motivation levels, the town needed a unifying platform that could educate, incentivize, and empower its residents—while providing the Sustainability Committee with actionable insights.
+                </p>
+                <blockquote className="border-l-4 border-indigo-400 pl-6 italic text-gray-600 bg-indigo-50/30 py-3 rounded-md mb-2">
+                  “How might we empower all residents of University Park to adopt and sustain eco-friendly practices, while building a sense of community around environmental stewardship?”
+                </blockquote>
+              </span>
+            </PageSection.ConstrainedWidth>
+            {/* Research & Analysis */}
+            <PageSection.ConstrainedWidth>
+              <span>
+                <h2 className="text-fontprimary mb-6">Research & Analysis</h2>
+                <ul className="list-disc pl-6 space-y-2 text-fontsecondary mb-4">
+                  <li>Market Research: Benchmarked global sustainability solutions, then tailored for local (UPark) needs.</li>
+                  <li>Expert Interviews: Consulted with sustainability leaders and neighboring committees to learn best practices.</li>
+                  <li>Persona Definition: Mapped both resident users (seeking practical, bite-sized sustainability actions) and “Green Team” admins (focused on oversight and data-driven interventions).</li>
+                </ul>
+              </span>
+              <UnifiedMedia
+                src={Research}
+                alt="Persona board/research visual"
+                bg={false}
+                gradient={uparkGradient}
+                imgWidth={1200}
+                imgHeight={630}
+              />
+            </PageSection.ConstrainedWidth>
+           
+            {/* Information Architecture & Conceptual Design */}
+            <PageSection.ConstrainedWidth>
+              <span>
+                <h2 className="text-fontprimary mb-6">Information Architecture & Conceptual Design</h2>
+                <ul className="list-disc pl-6 space-y-2 text-fontsecondary mb-4">
+                  <li>Conducted card sorting with real and proxy users to define a clear, intuitive information architecture for practices, badges, and community tools.</li>
+                  <li>Explored divergent low-fidelity sketches and voted on features to converge on a vision.</li>
+                  <li>Developed mid-fidelity wireframes to prototype core user flows for early feedback.</li>
+                </ul>
+               
+              </span>
+            </PageSection.ConstrainedWidth>
+            <PageSection.FullWidth>
+            {/* <UnifiedMedia
+                  src={cardsort}
+                  alt="Wireframes and sketch progression"
+                  bg={false}
+                  gradient={uparkGradient}
+                  
+                /> */}
+                <UnifiedMedia
+                  src={midfi}
+                  alt="Wireframes and sketch progression"
+                  bg={false}
+                  gradient={uparkGradient}
+                  
+                />
+             </PageSection.FullWidth>
+            {/* Behavioral Motivation & Engagement */}
+            <PageSection.ConstrainedWidth>
+              <span>
+                <h2 className="text-fontprimary mb-6">Behavioral Motivation & Engagement</h2>
+                <ul className="list-disc pl-6 space-y-2 text-fontsecondary mb-24">
+                  <li>Gamification Layer: Integrated badges, points, leveling to spur action—backed by habit formation research.</li>
+                  <li>Physical Rewards: Proposed real-life incentives (e.g. garden plaques, merch) as tangible status markers.</li>
+                  <li>Continuous Engagement: Recurring challenges and frequent community-driven events.</li>
+                  <li>Community Forum: Peer support and public celebration of sustainable wins.</li>
+                </ul>
+                <UnifiedMedia
+                  src={gamification}
+                  alt="Gamification/User profile sample"
+                  bg={false}
+                  gradient={uparkGradient}
+                  imgWidth={1200}
+                  imgHeight={630}
+                />
+               
+              </span>
+            </PageSection.ConstrainedWidth>
+            <PageSection.FullWidth>
+            <UnifiedMedia
+                  src={"/assets/universitypark/communitypost.mp4"}
+                  alt="Gamification/User profile sample"
+                  containerPadding="p-24"
+                  bg = {false}
+                  imgWidth={1200}
+                  imgHeight={630}
+                />
+            </PageSection.FullWidth>
+            {/* Design System & Visual Consistency */}
+            <PageSection.ConstrainedWidth>
+              <span>
+                <h2 className="text-fontprimary mb-6">Design System & Visual Consistency</h2>
+                <ul className="list-disc pl-6 space-y-2 text-fontsecondary mb-4">
+                  <li>Built a new design system to enable the entire team to collaborate efficiently and enforce UI/UX coherence.</li>
+                  <li>Utilized group workshops and voting to select an engaging, accessible visual language for a diverse audience.</li>
+                </ul>
+               
+              </span>
+            
+            </PageSection.ConstrainedWidth>
+            {/* <PageSection.FullWidth>
+            <UnifiedMedia
+                  src={Thai}
+                  alt="Design system collage"
+                  bg
+                  gradient={uparkGradient}
+                  imgWidth={1200}
+                  imgHeight={630}
+                />
+            </PageSection.FullWidth> */}
+            {/* User Testing & Iteration */}
+            <PageSection.ConstrainedWidth>
+              <span>
+                <h2 className="text-fontprimary mb-6">User Testing & Iteration</h2>
+                <ul className="list-disc pl-6 space-y-2 text-fontsecondary mb-4">
+                  <li>Usability sessions with 7 residents revealed clarity and navigation issues, mixed reactions on gamification.</li>
+                  <li>Key improvements: Added onboarding and a “Mission” section, clarified IA, simplified gamification explanations and dashboards.</li>
+                </ul>
+                {/* <UnifiedMedia
+                  src={Cafe}
+                  alt="Onboarding/pages visual"
+                  bg
+                  gradient={uparkGradient}
+                  imgWidth={1200}
+                  imgHeight={630}
+                /> */}
+              </span>
+            </PageSection.ConstrainedWidth>
+            {/* Final Platform Experience */}
+            <Divider />
+            <PageSection.ConstrainedWidth>
+              <span>
+                <h2 className="text-fontprimary mb-6">Final Platform Experience</h2>
+                <p className="mb-4 text-fontsecondary leading-relaxed">
+                  Multifaceted platform acting as a sustainability hub—offering educational resources, gamified practices, a supportive forum, and simple admin tools for the Green Team.
+                </p>
+                
+              </span>
+              <PageSection.FullWidth>
+              <UnifiedMedia
+                  src={"/assets/UniversityPark/OnboardingFlow.mp4"}
+                  alt="High-fi practices page"
+                  bg={false}
+                  containerPadding="p-24"
+                  gradient={uparkGradient}
+                  imgWidth={1200}
+                  imgHeight={630}
+                />
+              </PageSection.FullWidth>
+            </PageSection.ConstrainedWidth>
+            {/* Admin Tools */}
+            <PageSection.ConstrainedWidth>
+              <span>
+                <h2 className="text-fontprimary mb-6">Admin Tools</h2>
+                <p className="mb-4 text-fontsecondary leading-relaxed">
+                  Designed a clear WYSIWYG admin dashboard allowing non-technical committee members to update pages, review sustainability metrics, and track resident participation.
+                </p>
+              
+              </span>
+            
+            </PageSection.ConstrainedWidth>
+            <PageSection.FullWidth>
+            <UnifiedMedia
+                  src={admin}
+                  alt="Admin dashboard UI"
+                  bg={false}
+                  gradient={uparkGradient}
+                  imgWidth={1200}
+                  imgHeight={630}
+                />
+            </PageSection.FullWidth>
+            {/* Outcome & Impact */}
+            <Divider />
+            <PageSection.ConstrainedWidth>
+              <span>
+                <h2 className="text-fontprimary mb-6">Outcome & Impact</h2>
+                <ul className="list-disc pl-6 space-y-2 text-fontsecondary mb-4">
+                  <li>Delivered a community-wide digital solution that educated, motivated, and measured sustainable action across resident personas.</li>
+                  <li>Enabled the Sustainability Committee to target interventions and showcase community progress with real data.</li>
+                </ul>
+              </span>
+            </PageSection.ConstrainedWidth>
+            {/* Reflection & Learnings */}
+            <Divider />
+            <PageSection.ConstrainedWidth>
+              <span>
+                <h2 className="text-fontprimary mb-6">Reflection & Learnings</h2>
+                <ul className="list-disc pl-6 space-y-2 text-fontsecondary mb-4">
+                  <li>Balance is key: Gamification drives action, but must be carefully tuned to avoid feeling superficial.</li>
+                  <li>Onboarding and clarity: Clear communication of mission and mechanics accelerates adoption and impactful use.</li>
+                  <li>Co-building with users: Constant iteration with real residents ensured relevance and engagement at every step.</li>
+                </ul>
+              </span>
+            </PageSection.ConstrainedWidth>
+          </div>
+        </PageSection>
+      </DefaultPage>
+    </TransitionWrapper>
+  );
 };
-
-type FullImageProps = {
-  src: string;
-  alt: string;
-};
-
-// --- Components ---
-const Section: React.FC<SectionProps> = ({ children, altBg = false }) => (
-  <section className={`${altBg ? "bg-gray-50" : "bg-background"} border-t border-gray-100 py-16`}>
-    <div className="max-w-3xl mx-auto px-6">{children}</div>
-  </section>
-);
-
-const FullImage: React.FC<FullImageProps> = ({ src, alt }) => (
-  <div className="w-full my-12">
-    <div className="relative w-full aspect-[2.5/1] rounded-2xl overflow-hidden shadow-md">
-      <Image
-        src={src}
-        alt={alt}
-        fill
-        className="object-cover"
-        sizes="100vw"
-        priority
-      />
-    </div>
-  </div>
-);
-
-// --- Cat image placeholders ---
-const catImages = [
-  "https://cataas.com/cat?width=1200&height=480&31",
-  "https://cataas.com/cat?width=1200&height=480&32",
-  "https://cataas.com/cat?width=1200&height=480&33",
-  "https://cataas.com/cat?width=1200&height=480&34",
-  "https://cataas.com/cat?width=1200&height=480&35",
-  "https://cataas.com/cat?width=1200&height=480&36",
-  "https://cataas.com/cat?width=1200&height=480&37",
-];
-
-// --- Main Page ---
-const UniversityPark: React.FC = () => (
-  <TransitionWrapper>
-    <DefaultPage>
-      {/* Header */}
-      <Section>
-        <h1 className="text-5xl font-extrabold tracking-tight mb-6">University Park: Designing a Digital Platform for Collective Sustainability</h1>
-        <div className="flex flex-wrap gap-8 text-gray-500 text-base mb-8">
-          <span><strong>Role:</strong> Lead Product Designer – Vision, Strategy, and Execution</span>
-        </div>
-        <p className="text-xl text-gray-700 leading-relaxed font-light mb-2">
-          University Park, an innovative residential community, set out to transform sustainability from a distant aspiration into a vibrant, everyday reality. As Lead Product Designer, I spearheaded the creation of a digital platform that inspires, educates, and activates residents—combining behavioral science, gamification, and community engagement to spark measurable, lasting change.
-        </p>
-      </Section>
-
-      <FullImage src={catImages[0]} alt="Community engagement visual (placeholder)" />
-
-      {/* The Challenge */}
-      <Section altBg>
-        <h2 className="text-2xl font-bold mb-6">The Challenge</h2>
-        <p className="mb-4 text-lg leading-relaxed font-light">
-          How do you motivate hundreds of households, spanning ages and backgrounds, to not just learn about sustainability but to make it a visible, rewarding, and shared part of daily life? The platform had to be intuitive for all users, scalable for future growth, and robust enough to support both resident participation and committee oversight.
-        </p>
-      </Section>
-
-      <FullImage src={catImages[1]} alt="Resident interviews and insights (placeholder)" />
-
-      {/* Discovery & Research */}
-      <Section >
-        <h2 className="text-2xl font-bold mb-6">Discovery & Research</h2>
-        <ul className="list-disc pl-6 space-y-2 text-lg font-light mb-4">
-          <li>Resident Insights: Conducted interviews and surveys across the community to understand motivations, digital fluency, and barriers. Residents wanted practical, actionable tips and opportunities to celebrate small wins together.</li>
-          <li>Expert Collaboration: Partnered with sustainability experts and benchmarked leading eco-communities, drawing on models that blend education, shared resources, and accessible design.</li>
-          <li>Committee Workshops: Worked closely with the Sustainability Committee to clarify needs around data collection, engagement, and program management.</li>
-        </ul>
-      </Section>
-
-      <FullImage src={catImages[2]} alt="Persona mapping and card sorting (placeholder)" />
-
-      {/* Strategy & Information Architecture */}
-      <Section altBg>
-        <h2 className="text-2xl font-bold mb-6">Strategy & Information Architecture</h2>
-        <ul className="list-disc pl-6 space-y-2 text-lg font-light mb-4">
-          <li>Persona Mapping & Card Sorting: Facilitated workshops to define clear, intuitive structures for sustainability topics and resources.</li>
-          <li>Community-First Features: Prioritized peer-to-peer support, knowledge sharing, and visible progress—mirroring best practices in sustainable community design.</li>
-          <li>Dual Experience Flows: Crafted tailored journeys for residents (actionable practices, progress tracking, community connection) and admins (real-time insights, easy content management, scalable program tools).</li>
-        </ul>
-      </Section>
-
-      <FullImage src={catImages[3]} alt="Design sprint or gamification visual (placeholder)" />
-
-      {/* Design & Prototyping */}
-      <Section>
-        <h2 className="text-2xl font-bold mb-6">Design & Prototyping</h2>
-        <ul className="list-disc pl-6 space-y-2 text-lg font-light mb-4">
-          <li>Design Sprints: Led four rapid ideation sprints, iterating on features and interfaces based on resident and committee feedback.</li>
-          <li>Gamification: Introduced leveling, digital badges, and physical rewards (plaques, community merchandise) to drive engagement, inspired by successful green apps and platforms.</li>
-          <li>Community Forum: Designed a digital space for residents to share progress, ask questions, and celebrate achievements—fostering belonging and shared purpose.</li>
-          <li>Admin Dashboards: Built intuitive editing tools and real-time analytics for committee members, ensuring accessibility for non-technical users and supporting future growth.</li>
-        </ul>
-      </Section>
-
-      <FullImage src={catImages[4]} alt="Usability testing or onboarding flow (placeholder)" />
-
-      {/* Testing & Iteration */}
-      <Section altBg>
-        <h2 className="text-2xl font-bold mb-6">Testing & Iteration</h2>
-        <ul className="list-disc pl-6 space-y-2 text-lg font-light mb-4">
-          <li>Usability Testing: Ran multiple rounds with residents of all ages. Early feedback led to a clearer onboarding flow and a prominent “Our Mission” section to ground the platform’s purpose.</li>
-          <li>Navigation Refinement: Simplified information architecture, making it easy for residents to find relevant actions and track their impact.</li>
-          <li>Visual Engagement: Streamlined profile pages to showcase personal and community progress, balancing gamification to appeal to both families and adults.</li>
-        </ul>
-      </Section>
-
-      <FullImage src={catImages[5]} alt="Platform dashboard or community progress (placeholder)" />
-
-      {/* Final Solution */}
-      <Section>
-        <h2 className="text-2xl font-bold mb-6">Final Solution</h2>
-        <h3 className="text-lg font-semibold mt-4 mb-2">For Residents:</h3>
-        <ul className="list-disc pl-6 space-y-2 text-lg font-light mb-4">
-          <li>Seamless onboarding with clear value propositions.</li>
-          <li>Curated library of sustainability practices with actionable steps and community-sourced tips.</li>
-          <li>Gamified progress tracking, recognition, and an active community forum.</li>
-        </ul>
-        <h3 className="text-lg font-semibold mt-4 mb-2">For Admins:</h3>
-        <ul className="list-disc pl-6 space-y-2 text-lg font-light mb-4">
-          <li>Real-time dashboards to monitor participation, impact, and program health.</li>
-          <li>Simple tools for updating content, launching new challenges, and managing household activity.</li>
-          <li>Scalable design system ready for future initiatives.</li>
-        </ul>
-      </Section>
-
-      <FullImage src={catImages[6]} alt="Impact or community celebration (placeholder)" />
-
-      {/* Impact */}
-      <Section altBg>
-        <h2 className="text-2xl font-bold mb-6">Impact</h2>
-        <ul className="list-disc pl-6 space-y-2 text-lg font-light mb-4">
-          <li>The platform became the central hub for University Park’s sustainability movement, driving measurable increases in engagement and eco-friendly behaviors.</li>
-          <li>The Sustainability Committee gained powerful new tools for managing, tracking, and celebrating progress, freeing up time for strategic initiatives.</li>
-          <li>The project established a replicable model for other communities seeking to foster sustainability through digital design and resident empowerment.</li>
-        </ul>
-      </Section>
-
-      {/* Reflection */}
-      <Section>
-        <h2 className="text-2xl font-bold mb-6">Reflection</h2>
-        <p className="mb-4 text-lg font-light leading-relaxed">
-          This project was a masterclass in aligning community values, behavioral science, and digital product design. By listening deeply, prototyping quickly, and iterating with real users, we built a platform that not only educates but also mobilizes and connects an entire community around a shared mission for sustainable living.
-        </p>
-        <p className="text-lg font-light leading-relaxed">
-          Interested in the design system, gamification flows, or admin dashboards that powered this transformation? Let’s connect—I’m happy to share more.
-        </p>
-      </Section>
-    </DefaultPage>
-  </TransitionWrapper>
-);
 
 export default UniversityPark;

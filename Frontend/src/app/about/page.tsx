@@ -48,7 +48,7 @@ export default function AboutPage() {
        {!chatOpen && (
         <AnimatedBlobs expanded={false} loading={false} />
       )}
-      <section className="max-w-3xl w-full flex flex-col gap-10 items-start">
+      <section className="max-w-3xl w-full flex flex-col gap-10 items-start z-10">
         {/* Profile Image Section */}
         <div className="mb-6 w-full overflow-hidden">
           <Image

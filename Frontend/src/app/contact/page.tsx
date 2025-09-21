@@ -1,14 +1,17 @@
 // app/contact/page.jsx
 "use client";
-import { Mail, Linkedin } from "lucide-react";
+import { Mail, Linkedin, FileText } from "lucide-react";
 import { motion } from "framer-motion";
+import AnimatedBlobs from "../components/AnimatedBlobs";
+import { useChat } from '../context/ChatContext';
+import { useEffect } from "react";
 
 const links = [
-//   {
-//     href: "https://read.cv/aadityashete",
-//     label: "read.cv",
-//     icon: FileText,
-//   },
+  {
+    href: "https://drive.google.com/file/d/1RXU_kn3v-FHt8zt55SYcPZIExmXip2_B/view?usp=sharing",
+    label: "Resume",
+    icon: FileText,
+  },
   {
     href: "https://www.linkedin.com/in/aadityashete",
     label: "LinkedIn",
@@ -22,9 +25,18 @@ const links = [
 ];
 
 export default function Contact() {
+   const { chatOpen } = useChat()
+      useEffect(() => {
+        if (chatOpen) document.body.style.overflow = 'hidden';
+        else document.body.style.overflow = '';
+        return () => { document.body.style.overflow = '' };
+      }, [chatOpen]);
   return (
-    <main className="min-h-screen flex flex-col justify-center items-center  px-6">
-      <ul className="flex flex-col md:flex-row gap-6 w-full max-w-2xl justify-center items-center">
+    <main className="h-[70vh] flex flex-col justify-center items-center  px-6">
+       {!chatOpen && (
+              <AnimatedBlobs expanded={false} loading={false} />
+            )}
+      <ul className="flex flex-col md:flex-row gap-6 w-full max-w-2xl justify-center items-center z-10">
         {links.map(({ href, label, icon: Icon }) => (
           <motion.li
             key={label}

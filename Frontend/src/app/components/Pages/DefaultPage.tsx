@@ -8,7 +8,7 @@ export default function DefaultPage ({
   }){
     return(
         <>
-        <main className="flex flex-col items-center">
+        <main className="flex flex-col items-center z-10">
             {children}
         </main>
         <Footer />

@@ -1,11 +1,11 @@
 'use client'
-import React from "react";
+import React, { useEffect } from "react";
 
 import TransitionWrapper from "../components/TransitionWrapper";
 import DefaultPage from "../components/Pages/DefaultPage";
 import OrgDashboard from "../../../public/assets/Dune/dashboard.webp";
 import architecture from "../../../public/assets/Dune/architecture.webp";
-import battlecard from "../../../public/assets/Dune/battlecard.webp";
+//import battlecard from "../../../public/assets/Dune/battlecard.webp";
 import DesignSystem from "../../../public/assets/Dune/DesignSystem.webp";
 import OldDashboard from "../../../public/assets/Dune/OldOrganization.webp";
 import Customers from "../../../public/assets/Dune/customers.webp";
@@ -17,14 +17,32 @@ import { ArrowUp, ArrowDown, ArrowsOutLineVertical, Timer } from "phosphor-react
 import PageSection from "../components/Pages/PageSection";
 import FullImage from "../components/Miscelaneous/FullImage";
 import Divider from "../components/Miscelaneous/Divider";
-import FullMedia from "../components/Miscelaneous/FullMedia";
+import FullMedia from "../components/Miscelaneous/UnifiedMedia";
 import BeforeAfterSlider from "../components/Miscelaneous/BeforeAfterSlider";
+import { useChat } from "../context/ChatContext";
+import AnimatedBlobs from "../components/AnimatedBlobs";
 
 
 
 // --- Main Page ---
-const DuneSecurity: React.FC = () => (
+const DuneSecurity: React.FC = () => {
+   const { chatOpen } = useChat()
+        useEffect(() => {
+          if (chatOpen) document.body.style.overflow = 'hidden';
+          else document.body.style.overflow = '';
+          return () => { document.body.style.overflow = '' };
+        }, [chatOpen]);
+
+        const duneGradient = "#f6fafd";
+
+  
+  
+  return (
+  
   <TransitionWrapper>
+      {!chatOpen && (
+                  <AnimatedBlobs expanded={false} loading={false} />
+                )}
     <DefaultPage>
       {/* Header */}
       <PageSection>
@@ -53,7 +71,7 @@ const DuneSecurity: React.FC = () => (
 
             </div>
 
-            <FullImage src={OrgDashboard} alt="Collage of fragmented dashboards (placeholder)" />
+            <FullImage src={OrgDashboard} bg gradient={duneGradient} alt="Collage of fragmented dashboards (placeholder)" />
           </PageSection.FullWidth>
           <PageSection.ConstrainedWidth>
             <span className="flex flex-col gap-16">
@@ -165,11 +183,11 @@ const DuneSecurity: React.FC = () => (
               </blockquote>
             </span>
           </PageSection.ConstrainedWidth>
-          <PageSection.FullWidth>
+          {/* <PageSection.FullWidth>
             <div className="w-full">
               <FullImage src={battlecard} alt="Roadmap snapshot or prioritization matrix (placeholder)" bg={false} />
             </div>
-          </PageSection.FullWidth>
+          </PageSection.FullWidth> */}
           <Divider />
 
           <PageSection.ConstrainedWidth>
@@ -281,6 +299,6 @@ const DuneSecurity: React.FC = () => (
 
     </DefaultPage>
   </TransitionWrapper>
-);
+)};
 
 export default DuneSecurity;

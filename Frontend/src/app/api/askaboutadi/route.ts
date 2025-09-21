@@ -18,7 +18,7 @@ export async function POST(request: NextRequest) {
     He's a product designer who has worked on AI-powered security platforms, gamified sustainability apps, 
     and food tech tools for small businesses. He's based in New York currently.
     
-    Keep responses conversational, helpful, and reflective of your design expertise.`;
+    Keep responses conversational, helpful, and reflective of his design expertise but don't bring in design in every conversation`;
 
         // In your /app/api/askaboutadi/route.ts
         const response = await anthropic.messages.create({

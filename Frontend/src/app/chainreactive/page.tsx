@@ -1,227 +1,187 @@
 'use client'
-import React from "react";
-
+import React, { useEffect } from "react";
 import TransitionWrapper from "../components/TransitionWrapper";
 import DefaultPage from "../components/Pages/DefaultPage";
-import OrgDashboard from "../../../public/assets/Dune/dashboard.webp";
-import architecture from "../../../public/assets/Dune/architecture.webp";
-import battlecard from "../../../public/assets/Dune/battlecard.webp";
-
-
+import { ArrowUp, ArrowDown, ArrowsOutLineVertical, Timer } from "phosphor-react";
 import PageSection from "../components/Pages/PageSection";
-import FullImage from "../components/Miscelaneous/FullImage";
 import Divider from "../components/Miscelaneous/Divider";
+import UnifiedMedia from "../components/Miscelaneous/UnifiedMedia";
+import { useChat } from "../context/ChatContext";
+import AnimatedBlobs from "../components/AnimatedBlobs";
 
+import ChainDashboard from "../../../public/assets/ChainReactive/hero.webp";
+import MenuExample from "../../../public/assets/ChainReactive/menu-example.webp";
+import AdminDashboard from "../../../public/assets/ChainReactive/admin-dashboard.webp";
+import PizzaBuilder from "../../../public/assets/ChainReactive/pizza-builder.webp";
+import OrderFlow from "../../../public/assets/ChainReactive/order-flow.webp";
+import Cafe from "../../../public/assets/ChainReactive/cafe-example.webp";
+import Thai from "../../../public/assets/ChainReactive/thai-example.webp";
 
+const ChainReactive: React.FC = () => {
+  const { chatOpen } = useChat();
+  useEffect(() => {
+    if (chatOpen) document.body.style.overflow = 'hidden';
+    else document.body.style.overflow = '';
+    return () => { document.body.style.overflow = '' };
+  }, [chatOpen]);
 
-// --- Main Page ---
-const ChainReactive: React.FC = () => (
-  <TransitionWrapper>
-    <DefaultPage>
-      {/* Header */}
-      <PageSection>
-        <div className="w-full flex flex-col gap-16">
-          <PageSection.FullWidth>
-            <div className=" md:w-10/12 mt-48 flex flex-col gap-2 justify-center  md:flex-row ">
-              <span className="md:w-4/12">
-                <h2 className=" tracking-tight text-fontsecondary">Chain Reactive</h2>
-              </span>
-              <span className="md:w-8/12">
-                <h2 className="tracking-tight text-fontprimary">Empowering Small Restaurants with Seamless Online Ordering</h2>
-              </span>
+  const chainGradient = "#f6fafd";
 
-
-            </div>
-            <div className="w-10/12 flex flex mb-6">
-
-              <span className="hidden md:block w-4/12">
-                {/* <h2 className="text-4xl font-extrabold text-gray-500 tracking-tight mb-6">Dune Security</h2> */}
-              </span>
-              <span className="w-7/12 flex flex-col md:flex-row md:gap-4 text-fontsecondary mb-8 mt-3">
-                <span className="whitespace-nowrap">2021-2022,</span>
-                <span>Product Design, Research, Product Strategy, Web Developement</span>
-
-              </span>
-
-            </div>
-
-            <FullImage src={OrgDashboard} alt="Collage of fragmented dashboards (placeholder)" />
-          </PageSection.FullWidth>
-          <PageSection.ConstrainedWidth>
-            <span className="flex flex-col gap-16">
-              <span className="leading-relaxed mb-2 p-8 mt-12 flex flex-col gap-4 bg-gray-50 rounded-lg">
-                <h3>Summary</h3>
-                <h4 className="text-fontprimary ">
-                  I led the end-to-end design and launch of a new order scheduling system that transformed both business operations and the customer journey, enabling small restaurants to offer a modern, flexible online ordering experience.
-                </h4>
-
-              </span>
-              <span>
-                <h2 className="text-fontprimary mb-6">The Challenge</h2>
-                <p className="mb-4 text-fontsecondary leading-relaxed t">
-                  Local restaurants struggled with unpredictable order volumes, manual scheduling headaches, and static menus that complicated resource planning. Customers wanted to schedule orders ahead for events or busy times, but existing tools were confusing and disconnected menu availability and pricing from order timing.
-                </p>
-                <blockquote className="border-l-4 border-indigo-400 pl-6 italic text-gray-600 bg-indigo-50/30 py-3 rounded-md mb-2">
-                  “I wish I could see what’s available before I pick up my order, but the menu never matches the time I want.” – Customer Interview
-                </blockquote>
-              </span>
-            </span>
-
-          </PageSection.ConstrainedWidth>
-          <PageSection.FullWidth>
-            <div className="w-full">
-              <FullImage src={architecture} alt="Roadmap snapshot or prioritization matrix (placeholder)" bg={false} />
-            </div>
-          </PageSection.FullWidth>
-          <Divider />
+  return (
+    <TransitionWrapper>
+      {!chatOpen && (
+        <AnimatedBlobs expanded={false} loading={false} />
+      )}
+      <DefaultPage>
+        <PageSection>
           <div className="w-full flex flex-col gap-16">
+            {/* Header/Intro */}
+            <PageSection.FullWidth>
+              <div className="w-10/12 mt-48 flex">
+                <span className="w-4/12">
+                  <h2 className="tracking-tight text-fontsecondary">ChainReactive</h2>
+                </span>
+                <span className="w-8/12">
+                  <h2 className="tracking-tight text-fontprimary">
+                    Designing a POS-Integrated Website Builder for Small Businesses
+                  </h2>
+                </span>
+              </div>
+              <div className="w-10/12 flex flex mb-6">
+                <span className="w-4/12"></span>
+                <span className="w-8/12 flex flex-row gap-4 text-fontsecondary mb-8 mt-3">
+                  <span>2020-2022,</span>
+                  <span>Product Design, Research, Systems Design, Full-Stack Development</span>
+                </span>
+              </div>
+              <UnifiedMedia
+                src={ChainDashboard}
+                bg
+                gradient={chainGradient}
+                alt="ChainReactive platform dashboard"
+                imgWidth={1200}
+                imgHeight={630}
+              />
+            </PageSection.FullWidth>
+
+            {/* Summary */}
             <PageSection.ConstrainedWidth>
-              <span className="w-full flex items-left flex-col">
-                <h2 className="w-full text-fontprimary mb-6">Research & Strategy</h2>
+              <span className="flex flex-col gap-16">
+                <span className="leading-relaxed mb-2 p-8 mt-12 flex flex-col gap-4 bg-gray-50 rounded-lg">
+                  <h3>Summary</h3>
+                  <h4 className="text-fontprimary">
+                    As the founding designer and developer, I transformed an internal business need into a scalable platform used by dozens of small businesses. Partnering with our CEO—a backend architect who built our POS—I led the creation of an integrated online ordering system that enabled restaurants to launch branded, real-time, POS-synced ordering websites in minutes, addressing rapid digital transformation challenges during COVID-19.
+                  </h4>
+                </span>
+              </span>
+            </PageSection.ConstrainedWidth>
+            {/* Background & Opportunity */}
+            <PageSection.ConstrainedWidth>
+              <span>
+                <h2 className="text-fontprimary mb-6">Background & Opportunity</h2>
+                <p className="mb-4 text-fontsecondary leading-relaxed">
+                  COVID forced small businesses—especially in smaller towns—to digitize quickly, but existing platforms either charged high fees, lacked POS integration, or were too complex for non-technical business owners. As our CEO's spouse operated one of the first client restaurants, we saw first-hand the need for rapid, seamless transitions from in-person to online ordering.
+                </p>
                 <ul className="list-disc pl-6 space-y-2 text-fontsecondary mb-4">
-                  <li>User Interviews: Conducted in-depth interviews with restaurant owners and customers to uncover workflow bottlenecks and unmet needs.</li>
-                  <li>Journey Mapping: Identified key moments where digital solutions could drive efficiency and satisfaction.</li>
-                  <li>Vision Alignment: Positioned ChainReactive as the most adaptable, user-friendly ordering platform for small businesses.</li>
-                  <li>Roadmap Planning: Prioritized scalable scheduling, dynamic pricing, and real-time menu updates—features typically reserved for enterprise platforms.</li>
+                  <li>Manual website/menu updates were time-consuming and error-prone</li>
+                  <li>Delivery-focused solutions carried high commission rates and required technical onboarding</li>
+                  <li>Staff shortages made phone order management and in-restaurant customer service difficult</li>
                 </ul>
               </span>
             </PageSection.ConstrainedWidth>
-            {/* <PageSection.FullWidth>
-              <span className="w-full flex flex-col gap-4">
-
-
-
-                <span className=" grid grid-cols-4 gap-4">
-                <span className="flex flex-col items-start p-6 bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow transition">
-    <ArrowUp size={28} weight="duotone" className="text-gray-400 mb-2" />
-    <h4 className="text-fontprimary leading-snug">Employee training completion rates</h4>
-  </span>
-  <span className="flex flex-col items-start p-6 bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow transition">
-    <ArrowDown size={28} weight="duotone" className="text-gray-400 mb-2" />
-    <h4 className="text-fontprimary leading-snug">Dashboard-related support tickets</h4>
-  </span>
-  <span className="flex flex-col items-start p-6 bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow transition">
-    <ArrowsOutLineVertical size={28} weight="duotone" className="text-gray-400 mb-2" />
-    <h4 className="text-fontprimary  leading-snug">Expansion to new enterprise clients</h4>
-  </span>
-  <span className="flex flex-col items-start p-6 bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow transition">
-    <Timer size={28} weight="duotone" className="text-gray-400 mb-2" />
-    <h4 className="text-fontprimary leading-snug">Faster time-to-production for new features</h4>
-  </span>
-
-
-
-                </span>
-
+            {/* Platform Overview */}
+            <PageSection.ConstrainedWidth>
+              <span>
+                <h2 className="text-fontprimary mb-6">Product Solution: Platform Overview</h2>
+                <ul className="list-disc pl-6 space-y-2 text-fontsecondary mb-4">
+                  <li>Dynamic Website Generator: Used data from our POS to auto-generate custom-branded websites and sync menus, pricing, and item availability in real time.</li>
+                  <li>2-Step Ordering Flow: Simplified customer interface, enabling order placement in less than a minute.</li>
+                  <li>Unified Admin: Businesses used a single dashboard to manage both online and in-store orders.</li>
+                  <li>QR Ordering: Enabled in-restaurant, contactless ordering via QR codes.</li>
+                  <li>Payment Integration: Stripe-powered checkout with saved payments for repeat customers.</li>
+                </ul>
               </span>
-            </PageSection.FullWidth> */}
+            </PageSection.ConstrainedWidth>
 
+            {/* For Business Owners & Customers */}
+            <PageSection.ConstrainedWidth>
+              <span>
+                <h3 className="mt-5 mb-2 text-fontprimary">For Business Owners:</h3>
+                <ul className="list-disc pl-6 space-y-2 text-fontsecondary mb-2">
+                  <li>Setup required no technical expertise—10 minutes from onboarding to live branded online menu, no manual double-entry.</li>
+                </ul>
+                <h3 className="mt-5 mb-2 text-fontprimary">For Customers:</h3>
+                <ul className="list-disc pl-6 space-y-2 text-fontsecondary mb-6">
+                  <li>Easy visual browsing, instant repeat ordering, real-time pickup estimates, frictionless mobile-first interface.</li>
+                </ul>
+              </span>
+            </PageSection.ConstrainedWidth>
+            <PageSection.FullWidth>
+              <UnifiedMedia
+                src={MenuExample}
+                bg
+                gradient={chainGradient}
+                alt="Menu automation example"
+                imgWidth={1200}
+                imgHeight={630}
+              />
+            </PageSection.FullWidth>
 
+            {/* Go-to-Market Strategy */}
+            <Divider />
+            <PageSection.ConstrainedWidth>
+              <span>
+                <h2 className="text-fontprimary mb-6">Go-to-Market Strategy</h2>
+                <p className="mb-4 text-fontsecondary leading-relaxed">
+                  Initially offered as a free add-on to our POS during beta, the platform quickly proved value in reducing labor demands and increasing order volume. After demonstrating ROI and ease of use, the offering transitioned to a paid model, with scalable pricing based on usage and feature set.
+                </p>
+              </span>
+            </PageSection.ConstrainedWidth>
+
+            {/* Business Impact & Results */}
+            <Divider />
+            <PageSection.ConstrainedWidth>
+              <span>
+                <h2 className="text-fontprimary mb-6">Business Impact & Results</h2>
+                <ul className="list-disc pl-6 space-y-2 text-fontsecondary mb-2">
+                  <li>Enabled over 40 small businesses to digitize order management during the height of the pandemic.</li>
+                  <li>Average client revenue increased by 30–40% per month after rollout.</li>
+                  <li>Order completion times dropped below 60 seconds.</li>
+                  <li>Customer re-order rates exceeded 85% within 30 days.</li>
+                  <li>Staff saved an average of 15 hours per week on order processing and menu updates.</li>
+                </ul>
+              </span>
+            </PageSection.ConstrainedWidth>
+
+            {/* Key Advantages */}
+            <Divider />
+            <PageSection.ConstrainedWidth>
+              <span>
+                <h2 className="text-fontprimary mb-6">Key Advantages</h2>
+                <ul className="list-disc pl-6 space-y-2 text-fontsecondary mb-2">
+                  <li>Direct POS Integration: Real-time updates reduced manual errors and increased operational efficiency.</li>
+                  <li>Constraint-Driven Design: Limited templates ensured all websites were fast and mobile-optimized.</li>
+                  <li>Scalable System: Single codebase supported diverse business types and locations, including international expansion.</li>
+                  <li>Customer-Led Roadmap: Continuous feedback loops informed platform enhancements, prioritizing usability and measurable business value.</li>
+                </ul>
+              </span>
+            </PageSection.ConstrainedWidth>
+
+            {/* Reflection */}
+            <Divider />
+            <PageSection.ConstrainedWidth>
+              <span>
+                <h2 className="text-fontprimary mb-6">Reflection</h2>
+                <p className="mb-4 text-fontsecondary leading-relaxed">
+                  By identifying an authentic need within our existing customer base and leveraging core technical infrastructure, we quickly scaled a solution that blended operational efficiency with user-centric simplicity. Bringing the platform to market—starting from a real-world pain point—ensured we delivered clear ROI, ease of use, and business continuity for our small business customers.
+                </p>
+              </span>
+            </PageSection.ConstrainedWidth>
           </div>
-
-          <Divider />
-
-
-          {/* <PageSection.FullWidth>
-            <div className="w-full">
-              <FullImage src={OrgDashboard} alt="Roadmap snapshot or prioritization matrix (placeholder)" />
-            </div>
-          </PageSection.FullWidth> */}
-          <PageSection.ConstrainedWidth>
-            <span className="w-full flex flex-col">
-              <h2 className="text-fontprimary mb-6">Cross-Functional Leadership</h2>
-              <p className="mb-4 text-fontsecondary leading-relaxed">
-                Workshops: Facilitated collaborative sessions with engineering, business development, and customer success to co-create solutions and ensure buy-in.
-              </p>
-              <p className="mb-4 text-fontsecondary leading-relaxed">
-                Design System: Established robust design systems and documentation to support rapid iteration and consistent implementation as the platform scaled.
-              </p>
-            </span>
-          </PageSection.ConstrainedWidth>
-          {/* <PageSection.FullWidth>
-            <div className="w-full">
-              <FullImage src={OrgDashboard} alt="Roadmap snapshot or prioritization matrix (placeholder)" />
-            </div>
-          </PageSection.FullWidth> */}
-
-          <Divider />
-          <PageSection.ConstrainedWidth>
-            <span className="w-full flex flex-col">
-              <h2 className="text-fontprimary mb-6">Design & Execution</h2>
-              <ul className="list-disc pl-6 space-y-2 text-fontsecondary mb-4">
-                <li>Customer Flow: Developed a streamlined user flow requiring customers to select a pickup or delivery time upfront, surfacing only available menu items and accurate pricing for that window.</li>
-                <li>Time Selector: Designed an intuitive dropdown time selector, reducing friction and cutting the average order process from over 10 minutes to under 3 minutes.</li>
-                <li>Admin Tools: Built simple, powerful admin tools for business owners to adjust menu items, pricing, and availability by time slot.</li>
-                <li>Seamless Integration: Ensured smooth integration of scheduling logic, menu management, and payment systems, matching the quality of best-in-class platforms like Square and Toast.</li>
-              </ul>
-
-            </span>
-          </PageSection.ConstrainedWidth>
-          <PageSection.FullWidth>
-            <div className="w-full">
-              <FullImage src={battlecard} alt="Roadmap snapshot or prioritization matrix (placeholder)" bg={false} />
-            </div>
-          </PageSection.FullWidth>
-          <Divider />
-
-          <PageSection.ConstrainedWidth>
-
-            <span className="w-full flex flex-col">
-              <h2 className="text-fontprimary mb-6">Pilot & Iteration</h2>
-              <ul className="list-disc pl-6 space-y-2 text-fontsecondary mb-4">
-                <li>Pilot Launch: Rolled out with three partner restaurants, collecting analytics and qualitative feedback to refine the UI and admin dashboard.</li>
-                <li>Continuous Improvement: Analyzed order patterns and customer satisfaction data, driving iterative updates such as daily menu changes and dynamic pricing based on demand.</li>
-              </ul>
-
-            </span>
-          </PageSection.ConstrainedWidth>
-          <PageSection.FullWidth>
-            <div className="w-full">
-              <FullImage src={OrgDashboard} alt="Roadmap snapshot or prioritization matrix (placeholder)" />
-            </div>
-          </PageSection.FullWidth>
-          <Divider />
-          <PageSection.ConstrainedWidth>
-            <span className="w-full flex flex-col">
-              <h2 className="text-fontprimary mb-6">Results</h2>
-              <ul className="list-disc pl-6 space-y-2 text-fontsecondary mb-4">
-                <li>Time-to-Order: Reduced customer time-to-order from over 10 minutes to under 3 minutes.</li>
-                <li>Operational Efficiency: Enabled restaurant owners to plan staffing and inventory more accurately, resulting in fewer missed orders and reduced food waste.</li>
-                <li>Order Volume: Increased scheduled orders by 60% in the first quarter post-launch.</li>
-                <li>Repeat Business: Drove a 30% increase in repeat business from group and event orders.</li>
-                <li>Market Expansion: Accelerated platform expansion to new markets, with the scheduling feature emerging as a key differentiator.</li>
-              </ul>
-            </span>
-          </PageSection.ConstrainedWidth>
-          <PageSection.FullWidth>
-            <div className="w-full">
-              <FullImage src={OrgDashboard} alt="Roadmap snapshot or prioritization matrix (placeholder)" />
-            </div>
-          </PageSection.FullWidth>
-          <Divider />
-          <PageSection.ConstrainedWidth>
-            <span className="w-full flex flex-col">
-              <h2 className="text-fontprimary mb-6">Reflection</h2>
-              <p className="mb-4 leading-relaxed text-fontsecondary">
-                Designing and launching ChainReactive’s scheduling system meant aligning diverse stakeholders, balancing operational complexity with user simplicity, and building scalable systems for future growth. This project became a cornerstone of ChainReactive’s value proposition, enabling small businesses to compete digitally and adapt to evolving consumer expectations.
-              </p>
-            </span>
-          </PageSection.ConstrainedWidth>
-
-          <Divider />
-          <PageSection.ConstrainedWidth>
-            <span className="w-full flex flex-col">
-              <h2 className="text-fontprimary mb-6">My POV</h2>
-              <p className="mb-4 text-fontsecondary leading-relaxed leading-relaxed">
-                This experience reinforced my belief in the power of user-centered systems thinking—if I had more time or resources, I would have invested further in predictive analytics for order trends and even more granular menu customization.
-              </p>
-            </span>
-          </PageSection.ConstrainedWidth>
-
-        </div>
-      </PageSection>
-    </DefaultPage>
-  </TransitionWrapper>
-);
+        </PageSection>
+      </DefaultPage>
+    </TransitionWrapper>
+  );
+};
 
 export default ChainReactive;

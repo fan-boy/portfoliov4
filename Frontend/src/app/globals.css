@@ -85,8 +85,13 @@ h6 {
 }
 
 .bg-custom-radial {
-  background: radial-gradient(circle at 60% 40%, #f8c457 0%, #e79b07 40%, #b29254 75%, #3d2d1c 100%);
+  background: radial-gradient(circle at 50% 35%, 
+    #fff 0%, 
+    #f3f5fc 40%, 
+    #f9f2fb 80%, 
+    #eefbf7 100%);
 }
+
 
 .blob-gradient-bg {
   position: absolute;
