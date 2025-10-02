@@ -247,10 +247,10 @@ const UniversityPark: React.FC = () => {
             <UnifiedMedia
                   src={admin}
                   alt="Admin dashboard UI"
-                  bg={false}
+                  bg
+                  padding="p-24"
                   gradient={uparkGradient}
-                  imgWidth={1200}
-                  imgHeight={630}
+                  
                 />
             </PageSection.FullWidth>
             {/* Outcome & Impact */}

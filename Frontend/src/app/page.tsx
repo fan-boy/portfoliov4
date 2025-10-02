@@ -99,34 +99,33 @@ export default function Home() {
                       <div className="w-full">
                         <motion.div
                           className={
-                            "relative w-full flex justify-center items-center rounded-2xl border border-gray-100 shadow-md overflow-hidden " +
-                            "bg-[#f6fafd]"
+                            "relative w-full flex items-end justify-end  rounded-2xl border border-gray-100 shadow-md overflow-hidden " +
+                            "bg-indigo-100"
                           }
                           style={{
                             minHeight: "320px",
-                            padding: "2.5rem 1.25rem",
-                            transition: "box-shadow .2s"
+                            //height:"320px",
+                            paddingTop: "4.5rem",
+                            paddingLeft: "2.5rem",
+                            //transition: "box-shadow .2s"
+                             boxShadow: "inset 0 8px 32px 0px rgba(80,180,80,0.18), inset 0 2px 12px 0px rgba(0,0,0,0.12)"
                           }}
-                          whileHover={{
-                            boxShadow:
-                              "0 6px 36px 0px rgba(80,180,80,0.11), 0 1.5px  8px rgba(0,0,0,0.06)",
-                            scale: 1.012
-                          }}
-                          initial={{
-                            boxShadow:
-                              "0 1px 6px 0px rgba(80,180,80,0.06), 0 0.5px  2px rgba(0,0,0,0.02)",
-                            scale: 1
-                          }}
+                         
+                          
                         >
                           <motion.div
+                            initial={{
+                              scale: 1,
+          
+                            }}
                             whileHover={{ scale: 1.025 }}
-                            className="w-full mx-auto max-w-5xl rounded-2xl overflow-hidden"
+                            className="w-full  max-w-5xl rounded-tl-lg overflow-hidden"
                             transition={{ type: "spring", stiffness: 320, damping: 24 }}
                           >
                             <Image
                               src={project.image}
                               alt={project.imageAlt}
-                              className="w-full rounded-2xl shadow-sm"
+                              className="w-full rounded-tl-lg shadow-sm"
                               draggable={false}
                               priority
                               style={{ objectFit: "contain", background: "white" }}
