@@ -99,8 +99,7 @@ export default function Home() {
                       <div className="w-full">
                         <motion.div
                           className={
-                            "relative w-full flex items-end justify-end  rounded-2xl border border-gray-100 shadow-md overflow-hidden " +
-                            "bg-indigo-100"
+                            "relative w-full flex items-end justify-end  rounded-2xl inset-shadow-[0_5px_25px_rgba(0,0,0,0.25)] inset-shadow-indigo-200/50 overflow-hidden bg-indigo-100/70"
                           }
                           style={{
                             minHeight: "320px",
@@ -108,7 +107,7 @@ export default function Home() {
                             paddingTop: "4.5rem",
                             paddingLeft: "2.5rem",
                             //transition: "box-shadow .2s"
-                             boxShadow: "inset 0 8px 32px 0px rgba(80,180,80,0.18), inset 0 2px 12px 0px rgba(0,0,0,0.12)"
+                            //boxShadow: "inset 0 8px 32px 0px rgba(80,180,80,0.18), inset 0 2px 12px 0px rgba(0,0,0,0.12)"
                           }}
                          
                           

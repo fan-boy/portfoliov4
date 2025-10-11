@@ -20,7 +20,7 @@ const FullImage: React.FC<FullImageProps> = ({
 }) => (
   <div className="w-full px-12">
     <div
-      className={`md:relative w-full overflow-hidden flex justify-center items-center rounded-lg${bg ? "" : ""}`}
+      className={`md:relative w-full overflow-hidden flex justify-center items-center bg-indigo-100 rounded-lg${bg ? "" : ""}`}
       style={{
         background: bg ? (gradient || defaultGradient) : undefined,
         padding: bg ? "3.5rem" : undefined, // Equivalent to p-20 if bg, none otherwise

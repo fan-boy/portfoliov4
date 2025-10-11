@@ -33,7 +33,7 @@ const DuneSecurity: React.FC = () => {
           return () => { document.body.style.overflow = '' };
         }, [chatOpen]);
 
-        const duneGradient = "#f6fafd";
+        const duneGradient = "indigo-200/50";
 
   
   
@@ -96,7 +96,7 @@ const DuneSecurity: React.FC = () => {
           </PageSection.ConstrainedWidth>
           <PageSection.FullWidth>
             <div className="w-full">
-              <FullImage src={architecture} alt="Roadmap snapshot or prioritization matrix (placeholder)" bg={false} />
+              <FullImage src={architecture} alt="Roadmap snapshot or prioritization matrix (placeholder)" bg={true} />
             </div>
           </PageSection.FullWidth>
           <Divider />
