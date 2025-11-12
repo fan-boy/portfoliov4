@@ -16,15 +16,12 @@ type UnifiedMediaProps = {
   imgHeight?: number; // required for Image
 };
 
-const defaultGradient =
-  "";
 
 const UnifiedMedia: React.FC<UnifiedMediaProps> = ({
   src,
   alt,
   type,
   bg = true,
-  gradient,
   padding = "p-4",
   containerPadding = "",
   videoProps = {},
