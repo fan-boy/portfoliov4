@@ -16,8 +16,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
   return (
     <html lang="en">
+       <head>
+        <link href="https://fonts.cdnfonts.com/css/switzer" rel="stylesheet" />
+      </head>
       <body className="relative min-h-screen">
-        <ChatProvider>
+        <ChatProvider>  
           <CustomCursor />
           <Analytics />
           <SpeedInsights />

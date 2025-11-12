@@ -8,25 +8,26 @@ import DuneOrgDashboard from "../../public/assets/Dune/dashboard.webp";
 import UniversityParkUserProfile from "../../public/assets/UniversityPark/userprofile.webp";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import DefaultPage from "./components/Pages/DefaultPage";
 
 const projects = [
   {
     title: "Dune Security",
-    subtitle: "Redefining user-adaptive risk management for Fortune 500 CISOs.",
+    subtitle: "Redefining user-adaptive risk management ",
     href: "/dune",
     image: DuneOrgDashboard,
     imageAlt: "Dune Security dashboard preview",
   },
   {
     title: "University Park",
-    subtitle: "A digital platform for collective sustainability and community engagement.",
+    subtitle: "Desigining for sustainability and community enrichment",
     href: "/universitypark",
     image: UniversityParkUserProfile,
     imageAlt: "University Park platform preview",
   },
   // {
   //   title: "ChainReactive",
-  //   subtitle: "Empowering small restaurants with seamless online ordering.",
+  //   subtitle: "Empowering small restaurants with seamless online ordering",
   //   href: "/chainreactive",
   //   image: DuneOrgDashboard,
   //   imageAlt: "ChainReactive ordering system preview",
@@ -45,10 +46,12 @@ export default function Home() {
     <>
       <div>
         <TransitionWrapper>
+          
           {/* Hero Section */}
           {!chatOpen && (
             <AnimatedBlobs expanded={false} loading={false} />
           )}
+          <DefaultPage>
           <section className="w-full mt-48 ">
             <div className="max-w-3xl mx-auto px-6 flex flex-col items-start gap-6 font-sans">
               <span className="flex flex-col gap-6">
@@ -67,10 +70,15 @@ export default function Home() {
                     <span className="font-medium text-fontprimary">
                       Dune Security
                     </span>
-                    .
+                    
                   </h4>
                 </div>
               </span>
+              <div className="mt-2 bg-yellow-100 rounded-full px-4">
+  <span className="text-sm text-yellow-800  font-light">
+    This portfolio is currently in beta
+  </span>
+</div>
             </div>
           </section>
 
@@ -88,10 +96,10 @@ export default function Home() {
                     <div className="flex flex-col gap-8 w-full">
                       {/* Text Block */}
                       <div className="flex flex-col md:flex-row justify-between items-start md:pt-8">
-                        <h2 className="text-2xl md:text-3xl font-medium text-fontsecondary">
+                        <h2 className="text-2xl md:text-3xl text-fontsecondary">
                           {project.title}
                         </h2>
-                        <p className="text-lg md:text-xl font-light text-fontprimary md:w-1/2">
+                        <p className="text-2xl md:text-3xl font-light text-fontprimary md:w-3/5">
                           {project.subtitle}
                         </p>
                       </div>
@@ -151,6 +159,7 @@ export default function Home() {
               </p>
             </div>
           </section>
+          </DefaultPage>
         </TransitionWrapper>
       </div>
     </>

@@ -17,7 +17,7 @@ type UnifiedMediaProps = {
 };
 
 const defaultGradient =
-  "radial-gradient(circle at 50% 35%, #fff 0%, #f3f5fc 40%, #f9f2fb 80%, #eefbf7 100%)";
+  "";
 
 const UnifiedMedia: React.FC<UnifiedMediaProps> = ({
   src,
@@ -49,14 +49,18 @@ const UnifiedMedia: React.FC<UnifiedMediaProps> = ({
           bg ? "" : "",
         ].join(" ")}
         style={{
-          background: bg ? (gradient || defaultGradient) : undefined,
+          //background: bg ? (gradient || defaultGradient) : undefined,
           padding: bg ? padding : undefined,
         }}
       >
         {isVideo ? (
-          <video
+          <video 
+          
+          muted
+          loop
             src={src as string}
             className="w-full rounded-lg"
+            autoPlay
             controls
             preload="metadata"
             {...videoProps}

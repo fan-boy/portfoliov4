@@ -15,63 +15,80 @@ body, * {
   --color-background: var(--background);
   --color-fontprimary: var(--foreground);
   --color-fontsecondary: var(--foregroundtwo);
-  --font-sans: 'Figtree', ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-geist-mono);
-  
-  --height-75vh: 75vh;
-  --height-herocard: 50vh;
+  --font-sans: 'Switzer', 'Figtree', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono, 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', monospace);
 
-  --text-h1: 2.5rem;
-  --text-h2: 2rem;
-  --text-h3: 1.5rem;
-  --text-h4: 1.25rem;
-  --text-h5: 1.125rem;
-  --text-h6: 1.125rem;
+  --text-h1: 2rem;
+  --text-h2: 1.5rem;
+  --text-h3: 1.25rem;
+  --text-h4: 1.125rem;
+  --text-h5: 1rem;
+  --text-h6: 0.875rem;
   --text-body: 1.125rem;
-  --text-caption: 0.875rem;
+  --text-caption: 0.9rem;
 
   --lh-tight: 1.2;
-  --lh-normal: 1.5;
-  --fw-extrabold: 900;
+  --lh-normal: 1.6;
+
   --fw-bold: 700;
-  --fw-semibold: 600;
   --fw-normal: 400;
   --fw-light: 300;
 }
 
-/* ChatGPT-style concentrated top gradient */
 body {
-  @apply font-sans text-[var(--text-body)] leading-[var(--lh-normal)] font-normal;
-  
-  color: var(--foreground);
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  line-height: var(--lh-normal);
+  font-weight: var(--fw-normal);
+  background: var(--color-background);
+  color: var(--color-fontprimary);
+  margin: 0;
+  padding: 0;
   min-height: 100vh;
 }
 
-h1 {
-  @apply text-4xl leading-tight font-sans;
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-sans);
+  color: var(--color-fontprimary);
+  font-weight: var(--fw-light);
+  margin-top: 0;
+  
+  letter-spacing: -0.01em;
 }
-h2 {
-  @apply text-3xl leading-tight font-sans;
-}
-h3 {
-  @apply text-2xl leading-tight font-sans;
-}
-h4 {
-  @apply text-xl leading-tight font-sans;
-}
-h5 {
-  @apply text-lg leading-tight font-sans;
-}
-h6 {
-  @apply text-base leading-tight font-sans;
+
+h1 { font-size: var(--text-h1); font-weight: var(--fw-normal);}
+h2 { font-size: var(--text-h2); line-height: var(--lh-tight);}
+h3 { font-size: var(--text-h3); line-height: var(--lh-tight);}
+h4 { font-size: var(--text-h4);}
+h5 { font-size: var(--text-h5);}
+h6 { font-size: var(--text-h6);}
+
+p, .subtitle {
+  color: var(--color-fontsecondary);
+  font-size: var(--text-body);
+  font-weight: var(--fw-normal);
+  line-height: var(--lh-normal);
+  margin-bottom: 1.2rem;
 }
 
 .caption, caption {
-  @apply text-sm font-normal leading-normal font-sans;
+  font-family: var(--font-sans);
+  color: var(--color-fontsecondary);
+  font-size: var(--text-caption);
+  font-weight: var(--fw-light);
+  line-height: 1.5;
+  margin-bottom: 0.8rem;
 }
 
-.caption {
-  @apply font-sans text-[var(--text-caption)] leading-[var(--lh-normal)] font-normal;
+section {
+  padding: 3rem 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  background: transparent;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 .section-divider {

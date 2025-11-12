@@ -54,12 +54,11 @@ const ChainReactive: React.FC = () => {
                 </span>
               </div>
               <UnifiedMedia
-                src={ChainDashboard}
+                src={'/assets/ChainReactive/hero.mp4'}
                 bg
                 gradient={chainGradient}
                 alt="ChainReactive platform dashboard"
-                imgWidth={1200}
-                imgHeight={630}
+                
               />
             </PageSection.FullWidth>
 
