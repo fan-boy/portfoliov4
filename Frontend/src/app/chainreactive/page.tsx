@@ -8,7 +8,7 @@ import UnifiedMedia from "../components/Miscelaneous/UnifiedMedia";
 import { useChat } from "../context/ChatContext";
 import AnimatedBlobs from "../components/AnimatedBlobs";
 
-import ChainDashboard from "../../../public/assets/ChainReactive/hero.webp";
+//import ChainDashboard from "../../../public/assets/ChainReactive/hero.webp";
 import MenuExample from "../../../public/assets/ChainReactive/menu-example.webp";
 // import AdminDashboard from "../../../public/assets/ChainReactive/admin-dashboard.webp";
 // import PizzaBuilder from "../../../public/assets/ChainReactive/pizza-builder.webp";
